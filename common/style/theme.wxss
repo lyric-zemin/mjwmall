@@ -1,0 +1,6 @@
+page {
+  /* 颜色类 */
+  --color--theme: #ccc;
+  /* 大小类 */
+  --normal: 32rpx;
+}
