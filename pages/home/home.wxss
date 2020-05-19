@@ -1,0 +1,34 @@
+@import '/common/icon/home';
+
+page {
+  background-color: var(--color-background);
+}
+
+.head {
+  background-color: var(--color-theme);
+  padding: 16rpx 10rpx 0;
+  box-sizing: border-box;
+  height: 156rpx;
+}
+
+.head-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.head v-search {
+  flex: 1;
+}
+
+.head .icon-xiazai46 {
+  width: 62rpx;
+  text-align: center;
+  font-size: 66rpx;
+  color: var(--color);
+  margin-left: 10rpx;
+}
+
+.body {
+  padding: 0 10rpx;
+}

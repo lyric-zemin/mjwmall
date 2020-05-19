@@ -1,0 +1,6 @@
+<view class="grid">
+  <view class="item">
+    <image src="./image/spot.svg" class="img" />
+    <view class="text">现货中心</view>
+  </view>
+</view>

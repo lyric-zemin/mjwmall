@@ -1,12 +1,9 @@
 Page({
-  data: {
-    active: 0,
-  },
+  data: {},
+  onLoad() {
 
-  onChange(event) {
-    wx.showToast({
-      title: `切换到标签 ${event.detail.name}`,
-      icon: 'none',
-    });
   },
-});
+  clickSearch(e) {
+    console.log(e)
+  }
+})

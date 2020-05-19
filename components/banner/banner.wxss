@@ -1,0 +1,6 @@
+.banner {
+  height: 294rpx;
+  margin-top: 18rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}

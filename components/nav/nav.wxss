@@ -1,0 +1,31 @@
+@import '/common/icon/home';
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--size-large);
+  line-height: 68rpx;
+  color: var(--color);
+  position: relative;
+}
+
+.nav-wrap {
+  width: calc(100% - 60rpx);
+}
+
+.icon-fenlei {
+  width: 50rpx;
+  text-align: center;
+  font-size: 32rpx;
+  margin-left: 10rpx;
+}
+
+.nav-inner {
+  display: flex;
+}
+
+.nav-inner .item {
+  margin-right: 48rpx;
+  white-space: nowrap;
+}

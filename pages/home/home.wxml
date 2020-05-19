@@ -1,8 +1,15 @@
-<van-tabs active="{{ active }}" bind:change="onChange">
-  <van-tab title="标签 1">内容 1</van-tab>
-  <van-tab title="标签 2">内容 2</van-tab>
-  <van-tab title="标签 3">内容 3</van-tab>
-  <van-tab title="标签 4">内容 4</van-tab>
-  <van-tab title="标签 5">内容 5</van-tab>
-  <van-tab title="标签 6">内容 6</van-tab>
-</van-tabs>
+<van-sticky>
+  <view class="head">
+    <view class="head-wrap">
+      <v-search placeholder="请输入产品关键字，如品牌、型号等" bind:select="clickSearch" />
+      <i class="iconfont icon-xiazai46" />
+    </view>
+    <v-nav />
+  </view>
+</van-sticky>
+
+<view class="body">
+  <v-banner />
+  <v-extend />
+  <!-- 营销模块占位 -->
+</view>

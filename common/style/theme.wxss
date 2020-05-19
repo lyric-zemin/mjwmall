@@ -1,6 +1,17 @@
 page {
   /* 颜色类 */
-  --color--theme: #ccc;
+  --color: #fff;
+  --color-theme: #cf0011;
+  --color-background: #f8f8f8;
+  --color-tag-background: #ffbcbc;
+  --color-line: #e5e5e5;
+  --color-text: #808080;
+  --color-text-i: #959595;
+  --color-theme-text: #ff0000;
+  
   /* 大小类 */
-  --normal: 32rpx;
+  --size-large: 28rpx;
+  --size-normal: 26rpx;
+  --size-small: 19rpx;
+  --size-small-x: 13rpx;
 }

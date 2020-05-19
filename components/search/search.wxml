@@ -1,0 +1,9 @@
+<input
+  type="text" 
+  class="search" 
+  value="{{value}}" 
+  placeholder="{{placeholder}}" 
+  disabled="{{disabled}}" 
+  bind:tap="onClick" 
+  bind:input="onInput" 
+/>

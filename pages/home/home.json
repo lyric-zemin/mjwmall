@@ -1,6 +1,10 @@
 {
+  "navigationBarTitleText": "模架网商城",
   "usingComponents": {
-    "van-tab": "@vant/weapp/tab/index",
-    "van-tabs": "@vant/weapp/tabs/index"
+    "v-search": "/components/search/search",
+    "v-nav": "/components/nav/nav",
+    "v-banner": "/components/banner/banner",
+    "v-extend": "/pages/home/extend/index",
+    "van-sticky": "@vant/weapp/sticky/index"
   }
 }

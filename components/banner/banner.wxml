@@ -1,0 +1,7 @@
+<swiper class="banner">
+  <swiper-item wx:for="{{imgs}}" wx:key="index">
+    <navigator>
+      <image src="" mode="center" />
+    </navigator>
+  </swiper-item>
+</swiper>
