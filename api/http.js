@@ -1,8 +1,4 @@
-export {
-  API_BASE_URL,
-  OK_STATUS
-}
-from '../config'
+import { API_BASE_URL, OK_STATUS } from '../config'
 
 export default function http({
   url,
@@ -17,7 +13,7 @@ export default function http({
       header,
       data,
       success(res) {
-        if (res.status === OK_STATUS) {
+        if (res.statusCode === OK_STATUS) {
           resolve(res.data)
         } else {
           toastErr()

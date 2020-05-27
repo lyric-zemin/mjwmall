@@ -1,4 +1,4 @@
-<van-sticky>
+<van-sticky z-index="10">
   <view class="head">
     <view class="head-wrap">
       <v-search placeholder="请输入产品关键字，如品牌、型号等" bind:select="clickSearch" />
@@ -10,6 +10,6 @@
 
 <view class="body">
   <v-banner />
-  <v-extend />
+  <!-- <v-extend /> -->
   <!-- 营销模块占位 -->
 </view>
