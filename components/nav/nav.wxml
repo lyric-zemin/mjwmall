@@ -1,8 +1,8 @@
 <view class="nav">
   <scroll-view class="nav-wrap" scroll-x="true">
     <view class="nav-inner">
-      <view wx:for="{{list}}" class="item" wx:key="*this">
-        {{item}}
+      <view wx:for="{{list}}" class="item" data-catid="{{item.catid}}" wx:key="catid" bind:tap="onTap">
+        {{item.catname}}
       </view>
     </view>
   </scroll-view>

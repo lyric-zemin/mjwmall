@@ -1,0 +1,22 @@
+.tab-wrap {
+  margin-top: 30rpx;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 30rpx;
+}
+
+.item {
+  width: 354rpx;
+  height: 525rpx;
+  background-color: var(--color);
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.img {
+  max-width: 100%;
+}

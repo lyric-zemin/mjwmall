@@ -1,7 +1,5 @@
-<swiper class="banner">
-  <swiper-item wx:for="{{imgs}}" wx:key="index">
-    <navigator>
-      <image src="" mode="center" />
-    </navigator>
+<swiper class="banner" indicator-dots="{{true}}" autoplay="{{true}}">
+  <swiper-item wx:for="{{imgs}}" wx:key="image_src">
+    <image src="{{item.image_src}}" class="imgs" />
   </swiper-item>
 </swiper>

@@ -13,7 +13,7 @@
 		"coverView": true,
 		"nodeModules": true,
 		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
+		"showShadowRootInWxmlPanel": false,
 		"scopeDataCheck": true,
 		"uglifyFileName": true,
 		"checkInvalidKey": true,
@@ -25,12 +25,12 @@
 			"outputPath": ""
 		},
 		"bundle": true,
-		"useCompilerModule": false,
+		"useCompilerModule": true,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.11.0",
-	"appid": "wx2ebe7ccf5e548673",
+	"libVersion": "2.11.1",
+	"appid": "wx894ec6e4201f5745",
 	"projectname": "mjwmall",
 	"debugOptions": {
 		"hidedInDevtools": []

@@ -1,0 +1,45 @@
+@import "/common/icon/home";
+
+.brand {
+  padding: 15rpx;
+  background-color: var(--color);
+  border-radius: 10rpx;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title .left {
+  display: flex;
+  align-items: center;
+}
+
+.icon-pinpai {
+  color: var(--color-theme);
+  font-size: 36rpx;
+  margin-right: 6rpx;
+  transform: translateY(4rpx);
+}
+
+.left .text {
+  font-size: var(--size-large);
+  color: var(--color-text);
+}
+
+.more {
+  font-size: var(--size-small);
+  color: var(--color-text);
+}
+
+.brands-text {
+  text-align: center;
+  font-size: var(--size-small);
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 14rpx 0;
+}

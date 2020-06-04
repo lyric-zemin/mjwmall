@@ -31,4 +31,9 @@ page {
 
 .body {
   padding: 0 10rpx;
+  margin-top: 18rpx;
+}
+
+.extend-wrap {
+  margin-top: 28rpx;
 }

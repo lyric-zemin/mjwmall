@@ -1,9 +1,10 @@
+// pages/home/brand/index.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    list: {
+    brands: {
       type: Array,
       value: []
     }
@@ -20,14 +21,6 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    showMore() {
-      wx.switchTab({
-        url: '/pages/classify/classify'
-      })
-    },
-    onTap(e) {
-      const { catid } = e.target.dataset
-      console.log(catid)
-    }
+
   }
 })

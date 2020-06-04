@@ -1,15 +1,17 @@
 <van-sticky z-index="10">
   <view class="head">
     <view class="head-wrap">
-      <v-search placeholder="请输入产品关键字，如品牌、型号等" bind:select="clickSearch" />
+      <v-search placeholder="请输入产品关键字，如品牌、型号等" bind:search="clickSearch" />
       <i class="iconfont icon-xiazai46" />
     </view>
-    <v-nav />
+    <v-nav list="{{navs}}" />
   </view>
 </van-sticky>
 
 <view class="body">
-  <v-banner />
-  <!-- <v-extend /> -->
+  <v-banner imgs="{{banners}}" />
+  <v-extend wrap-class="extend-wrap" />
   <!-- 营销模块占位 -->
+  <v-brand brands="{{brands}}" />
+  <v-goods />
 </view>

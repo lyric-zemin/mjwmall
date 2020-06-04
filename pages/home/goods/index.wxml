@@ -1,0 +1,10 @@
+<van-tabs active="{{active}}" color="#cf0011" swipeable bind:change="onChange" custom-class="tab-wrap">
+  <van-tab wx:for="{{types}}" wx:key="index" title="{{item.name}}" name="{{index}}">
+    <view class="container">
+      <view class="item" wx:for="{{dataCache[index]}}" wx:key="index">
+        <image src="" class="img" />
+        <view class="text">{{item.name}}</view>
+      </view>
+    </view>
+  </van-tab>
+</van-tabs>

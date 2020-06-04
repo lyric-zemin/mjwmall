@@ -6,11 +6,34 @@ Component({
 
   },
 
+  externalClasses: ['wrap-class'],
+
   /**
    * 组件的初始数据
    */
   data: {
-
+    grids: [
+      {
+        img: './image/spot.svg',
+        text: '现货中心'
+      },
+      {
+        img: './image/product.svg',
+        text: '产品中心'
+      },
+      {
+        img: './image/enterprise.svg',
+        text: '品牌企业'
+      },
+      {
+        img: './image/inquiry.svg',
+        text: '发布询价'
+      },
+      {
+        img: './image/goods.svg',
+        text: '委托找货'
+      }
+    ]
   },
 
   /**

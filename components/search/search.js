@@ -29,7 +29,7 @@ Component({
       this.data.value = value
     },
     onClick(e) {
-      this.triggerEvent('select', this.data)
+      this.triggerEvent('search', this.data)
     }
   }
 })

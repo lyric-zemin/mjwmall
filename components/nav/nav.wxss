@@ -1,4 +1,4 @@
-@import '/common/icon/home';
+@import "/common/icon/home";
 
 .nav {
   display: flex;
@@ -26,6 +26,6 @@
 }
 
 .nav-inner .item {
-  margin-right: 48rpx;
+  margin-right: 26rpx;
   white-space: nowrap;
 }

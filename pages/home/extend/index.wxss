@@ -1,0 +1,25 @@
+.grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.grid .item {
+  flex: 1;
+  margin-left: 40rpx;
+}
+
+.grid .item:first-child {
+  margin-left: 0;
+}
+
+.grid .item .img {
+  width: 100%;
+  display: block;
+}
+
+.grid .item .text {
+  text-align: center;
+  line-height: 84rpx;
+  color: var(--color-text);
+  font-size: var(--size-normal);
+}

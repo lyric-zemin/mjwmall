@@ -5,6 +5,8 @@
     "v-nav": "/components/nav/nav",
     "v-banner": "/components/banner/banner",
     "v-extend": "/pages/home/extend/index",
+    "v-brand": "/pages/home/brand/index",
+    "v-goods": "/pages/home/goods/index",
     "van-sticky": "@vant/weapp/sticky/index"
   }
 }
