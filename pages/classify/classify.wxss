@@ -1,1 +1,70 @@
-/* pages/classify/classify.wxss */
+page {
+  background-color: var(--color-background);
+}
+
+.head {
+  padding: 0 10rpx 15rpx;
+  display: flex;
+  background-color: var(--color);
+}
+
+.head .all {
+  flex: 0 0 160rpx;
+  margin-right: 12rpx;
+  background-color: var(--color-background);
+  text-align: center;
+  border-radius: 30rpx;
+  font-size: var(--size-small);
+  color: var(--color-text);
+  line-height: 54rpx;
+}
+
+.search-wrap {
+  flex: 1;
+}
+
+.v-search {
+  background-color: var(--color-background) !important;
+  text-align: left !important;
+  text-indent: 20rpx;
+}
+
+.body {
+  position: fixed;
+  top: 80rpx;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.body .left {
+  flex: 0 0 176rpx;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--color);
+}
+
+.body .left .item {
+  text-align: center;
+  font-size: var(--size-normal);
+  color: var(--color-text);
+  padding: 12rpx 0;
+}
+
+.body .left .item.active {
+  color: var(--color-theme);
+}
+
+.check .van-cell__title,
+.check .van-icon-arrow {
+  color: var(--color-theme);
+}
+
+.body .right {
+  flex: 0 0 558rpx;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--color);
+}

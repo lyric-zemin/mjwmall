@@ -17,3 +17,12 @@ export function getBrand() {
     url: '/Choice/choice'
   })
 }
+
+export function getGoods(type) {
+  return http({
+    url: '/mall/Arrondi/arronDi',
+    data: {
+      type
+    }
+  })
+}

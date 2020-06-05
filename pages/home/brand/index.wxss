@@ -42,4 +42,5 @@
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 14rpx 0;
+  width: 6em;
 }

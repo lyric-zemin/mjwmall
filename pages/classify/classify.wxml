@@ -1,2 +1,33 @@
-<!--pages/classify/classify.wxml-->
-<text>pages/classify/classify.wxml</text>
+<view class="head">
+  <view class="all">全部分类</view>
+  <view class="search-wrap">
+    <v-search custom-class="v-search" placeholder="请输入产品关键字，如品牌、型号等" />
+  </view>
+</view>
+
+<view class="body">
+  <scroll-view class="left" scroll-y scroll-into-view="{{'item' + currentCatid}}">
+    <van-collapse accordion value="{{ activeName }}" bind:change="onChange">
+      <van-collapse-item
+        wx:for="{{classify}}"
+        wx:key="catid"
+        title="{{item.catname}}"
+        name="{{'' + item.catid}}"
+        custom-class="{{activeName == item.catid ? 'check' : ''}}"
+        id="{{'item' + item.catid}}"
+      >
+        <view
+          wx:for="{{item.catchildren}}"
+          wx:key="catid"
+          wx:for-item="child"
+          data-catid="{{child.catid}}"
+          class="item {{currentCatid == child.catid ? 'active' : ''}}"
+          bind:tap="clickItem"
+        >{{child.catname}}</view>
+      </van-collapse-item>
+    </van-collapse>
+  </scroll-view>
+  <scroll-view class="right" scroll-y>
+    
+  </scroll-view>
+</view>

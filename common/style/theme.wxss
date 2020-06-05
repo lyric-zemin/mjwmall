@@ -12,6 +12,6 @@ page {
   /* 大小类 */
   --size-large: 28rpx;
   --size-normal: 26rpx;
-  --size-small: 19rpx;
-  --size-small-x: 13rpx;
+  --size-small: 24rpx;
+  --size-small-x: 20rpx;
 }

@@ -1,10 +1,57 @@
-<van-tabs active="{{active}}" color="#cf0011" swipeable bind:change="onChange" custom-class="tab-wrap">
+<van-tabs
+  active="{{active}}"
+  color="#cf0011"
+  swipeable
+  bind:change="onChange"
+  custom-class="tab-wrap"
+>
   <van-tab wx:for="{{types}}" wx:key="index" title="{{item.name}}" name="{{index}}">
     <view class="container">
-      <view class="item" wx:for="{{dataCache[index]}}" wx:key="index">
-        <image src="" class="img" />
-        <view class="text">{{item.name}}</view>
+      <view class="item" wx:for="{{dataCache[index]}}" wx:key="itemid" data-itemid="{{item.itemid}}">
+        <view class="img-wrap">
+          <image class="img" src="{{item.thumb}}" />
+        </view>
+        <view class="name">{{item.title}}</view>
+        <view class="tag-wrap">
+          <van-tag
+            color="#ffbcbc"
+            text-color="#ff0000"
+            round
+            wx:if="{{item.self_camp}}"
+            custom-class="tag"
+          >商家自营</van-tag>
+          <van-tag
+            color="#ffbcbc"
+            text-color="#ff0000"
+            round
+            wx:if="{{item.in_stock}}"
+            custom-class="tag"
+          >现货</van-tag>
+        </view>
+        <div class="foot-wrap">
+          <view class="price">￥{{filter.priceFilter(item.price)}}万</view>
+          <view class="pay">{{item.payment}}人付款</view>
+        </div>
       </view>
     </view>
   </van-tab>
 </van-tabs>
+
+<wxs module="filter">
+  function priceFilter(num) {
+    var ret = parseFloat(num/10000)
+    var ary = ret.toString().split('.')
+    var ary1 = ary[1]
+    if (ary1) {
+      var flo = ary1
+      while(flo[flo.length-1] == 0) {
+        flo = flo.slice(0, flo.length-1)
+      }
+      ret = ary[0] + '.' + flo
+    }
+    return ret
+  }
+  module.exports = {
+    priceFilter: priceFilter
+  }
+</wxs>

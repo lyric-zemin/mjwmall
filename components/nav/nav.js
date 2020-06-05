@@ -27,7 +27,10 @@ Component({
     },
     onTap(e) {
       const { catid } = e.target.dataset
-      console.log(catid)
+      // 待优化
+      wx.reLaunch({
+        url: `/pages/classify/classify?catid=${catid}`
+      })
     }
   }
 })

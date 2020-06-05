@@ -1,25 +1,29 @@
+import { getGoods } from '../../../api/home'
+
 const TYPE = {
   recommend: {
     name: '特别推荐',
-    char: 0,
+    char: 1,
   },
   new: {
     name: '新品专区',
-    char: 1
+    char: 2
   },
   special: {
     name: '天天特卖',
-    char: 2
+    char: 3
   },
   used: {
     name: '二手设备',
-    char: 3
+    char: 4
   },
   selfEmployed: {
     name: '商家自营',
-    char: 4
+    char: 5
   }
 }
+
+const DEFAULT_TYPR = 'recommend'
 
 Component({
   /**
@@ -34,8 +38,18 @@ Component({
    */
   data: {
     types: TYPE,
-    active: 'recommend',
+    active: DEFAULT_TYPR,
     dataCache: {}
+  },
+
+  lifetimes: {
+    created() {
+      this.onChange({
+        detail: {
+          name: DEFAULT_TYPR
+        }
+      })
+    }
   },
 
   /**
@@ -46,7 +60,12 @@ Component({
       const { name } = e.detail
       const type = TYPE[name].char
       if (this.data.dataCache[name]) return
-      console.log(name, type)
+      getGoods(type).then(res => {
+        this.data.dataCache[name] = res.data
+        this.setData({
+          dataCache: this.data.dataCache
+        })
+      })
     }
   }
 })

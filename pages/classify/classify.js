@@ -1,66 +1,52 @@
-// pages/classify/classify.js
+import { getClassify } from '../../api/classify'
+
+const DEFAULT_CATID = '2829' // activeName使用的为全等比对，统一用字符串类型
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    activeName: DEFAULT_CATID,
+    classify: [],
+    currentCatid: DEFAULT_CATID
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad(options) {
+    const { catid } = options
+    this.getData().then(() => {
+      if (catid) {
+        this.setData({
+          activeName: catid,
+          currentCatid: catid
+        })
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  getData() {
+    return getClassify().then(res => {
+      this.setData({
+        classify: res.data
+      })
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  onChange(e) {
+    const catid = e.detail
+    this.setData({
+      activeName: catid
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  clickItem(e) {
+    const { catid } = e.target.dataset
+    this.setData({
+      currentCatid: catid
+    })
   }
 })
