@@ -52,7 +52,7 @@
   align-items: center;
 }
 
-.tag {
+.tag-wrap v-tag {
   margin-right: 6rpx;
 }
 

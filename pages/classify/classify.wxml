@@ -6,8 +6,8 @@
 </view>
 
 <view class="body">
-  <scroll-view class="left" scroll-y scroll-into-view="{{'item' + currentCatid}}">
-    <van-collapse accordion value="{{ activeName }}" bind:change="onChange">
+  <scroll-view class="left" scroll-y scroll-into-view="{{'item' + activeName}}">
+    <van-collapse accordion value="{{activeName}}" bind:change="onChange">
       <van-collapse-item
         wx:for="{{classify}}"
         wx:key="catid"
@@ -28,6 +28,36 @@
     </van-collapse>
   </scroll-view>
   <scroll-view class="right" scroll-y>
-    
+    <view class="container">
+      <view class="recommend">
+        <view class="title">
+          <view class="text">品牌推荐</view>
+        </view>
+        <van-grid column-num="{{3}}" border="{{false}}" clickable>
+          <van-grid-item text="文字">
+            <view slot="icon" class="img-wrap">icon</view>
+          </van-grid-item>
+          <van-grid-item icon="photo-o" text="文字" />
+          <van-grid-item icon="photo-o" text="文字" />
+          <van-grid-item icon="photo-o" text="文字" />
+        </van-grid>
+      </view>
+      <view class="recommend">
+        <view class="title">
+          <view class="text">产品推荐</view>
+          <view class="more">更多</view>
+        </view>
+        <van-grid column-num="{{2}}" border="{{false}}" clickable>
+          <van-grid-item icon="photo-o" text="文字" bind:click="clickGoodsItem" />
+          <van-grid-item icon="photo-o" text="文字" />
+          <van-grid-item icon="photo-o" text="文字" />
+          <van-grid-item icon="photo-o" text="文字" />
+          <van-grid-item icon="photo-o" text="文字" />
+          <van-grid-item icon="photo-o" text="文字" />
+          <van-grid-item icon="photo-o" text="文字" />
+          <van-grid-item icon="photo-o" text="文字" />
+        </van-grid>
+      </view>
+    </view>
   </scroll-view>
 </view>

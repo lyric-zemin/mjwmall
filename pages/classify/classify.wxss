@@ -48,7 +48,7 @@ page {
 
 .body .left .item {
   text-align: center;
-  font-size: var(--size-normal);
+  font-size: var(--size-small);
   color: var(--color-text);
   padding: 12rpx 0;
 }
@@ -67,4 +67,26 @@ page {
   height: 100%;
   overflow: hidden;
   background-color: var(--color);
+}
+
+.container {
+  padding: 10rpx;
+}
+
+.recommend:first-child {
+  margin-bottom: 15rpx;
+  margin-top: 10rpx;
+}
+
+.recommend .title {
+  font-size: var(--size-normal);
+  color: var(--color-text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recommend .title .more {
+  font-size: var(--size-small);
+  padding: 5rpx;
 }

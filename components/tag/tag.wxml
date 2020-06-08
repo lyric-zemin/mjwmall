@@ -1,0 +1,3 @@
+<van-tag color="#ffbcbc" text-color="#ff0000" round>
+  {{text}}
+</van-tag>

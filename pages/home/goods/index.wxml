@@ -7,26 +7,19 @@
 >
   <van-tab wx:for="{{types}}" wx:key="index" title="{{item.name}}" name="{{index}}">
     <view class="container">
-      <view class="item" wx:for="{{dataCache[index]}}" wx:key="itemid" data-itemid="{{item.itemid}}">
+      <view
+        class="item"
+        wx:for="{{dataCache[index]}}"
+        wx:key="itemid"
+        data-itemid="{{item.itemid}}"
+      >
         <view class="img-wrap">
           <image class="img" src="{{item.thumb}}" />
         </view>
         <view class="name">{{item.title}}</view>
         <view class="tag-wrap">
-          <van-tag
-            color="#ffbcbc"
-            text-color="#ff0000"
-            round
-            wx:if="{{item.self_camp}}"
-            custom-class="tag"
-          >商家自营</van-tag>
-          <van-tag
-            color="#ffbcbc"
-            text-color="#ff0000"
-            round
-            wx:if="{{item.in_stock}}"
-            custom-class="tag"
-          >现货</van-tag>
+          <v-tag wx:if="{{item.self_camp}}" text="商家自营" />
+          <v-tag wx:if="{{item.in_stock}}" text="现货" />
         </view>
         <div class="foot-wrap">
           <view class="price">￥{{filter.priceFilter(item.price)}}万</view>
@@ -44,8 +37,8 @@
     var ary1 = ary[1]
     if (ary1) {
       var flo = ary1
-      while(flo[flo.length-1] == 0) {
-        flo = flo.slice(0, flo.length-1)
+      if(flo.length>2) {
+        flo = flo.slice(0,2)
       }
       ret = ary[0] + '.' + flo
     }

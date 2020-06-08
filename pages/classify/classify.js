@@ -10,7 +10,8 @@ Page({
   data: {
     activeName: DEFAULT_CATID,
     classify: [],
-    currentCatid: DEFAULT_CATID
+    currentCatid: DEFAULT_CATID,
+    recommend: {}
   },
 
   /**
@@ -19,7 +20,7 @@ Page({
   onLoad(options) {
     const { catid } = options
     this.getData().then(() => {
-      if (catid) {
+      if (catid && catid !== this.data.activeName) {
         this.setData({
           activeName: catid,
           currentCatid: catid
@@ -36,6 +37,10 @@ Page({
     })
   },
 
+  getRecommend() {
+
+  },
+
   onChange(e) {
     const catid = e.detail
     this.setData({
@@ -48,5 +53,9 @@ Page({
     this.setData({
       currentCatid: catid
     })
+  },
+
+  clickGoodsItem(e) {
+
   }
 })
