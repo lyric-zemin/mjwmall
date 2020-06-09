@@ -1,1 +1,15 @@
-/* pages/goods-detail/goods-detail.wxss */
+page {
+  background-color: var(--color-background);
+}
+
+.body {
+  position: fixed;
+  top: 0;
+  bottom: 100rpx;
+  width: 100%;
+}
+
+.slider-wrap {
+  padding: 12rpx;
+  height: 674rpx;
+}

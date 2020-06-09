@@ -1,3 +1,10 @@
 {
-  "usingComponents": {}
+  "navigationBarTitleText": "商品详情",
+  "usingComponents": {
+    "v-slider": "/pages/goods-detail/slider/index",
+    "wxParse": "/components/wxParse/wxParse",
+    "van-goods-action": "@vant/weapp/goods-action/index",
+    "van-goods-action-icon": "@vant/weapp/goods-action-icon/index",
+    "van-goods-action-button": "@vant/weapp/goods-action-button/index"
+  }
 }

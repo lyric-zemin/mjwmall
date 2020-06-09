@@ -6,7 +6,7 @@
 </view>
 
 <view class="body">
-  <scroll-view class="left" scroll-y scroll-into-view="{{'item' + activeName}}">
+  <scroll-view class="left" scroll-y scroll-into-view="{{isJump ? 'item' + activeName : ''}}">
     <van-collapse accordion value="{{activeName}}" bind:change="onChange">
       <van-collapse-item
         wx:for="{{classify}}"
@@ -28,18 +28,21 @@
     </van-collapse>
   </scroll-view>
   <scroll-view class="right" scroll-y>
-    <view class="container">
+    <view hidden="{{!recommend.goods}}" class="container">
       <view class="recommend">
         <view class="title">
           <view class="text">品牌推荐</view>
         </view>
         <van-grid column-num="{{3}}" border="{{false}}" clickable>
-          <van-grid-item text="文字">
-            <view slot="icon" class="img-wrap">icon</view>
+          <van-grid-item
+            wx:for="{{recommend.brand}}"
+            wx:key="userid"
+            data-userid="{{item.userid}}"
+            bind:click="clickBrandItem"
+          >
+            <van-icon slot="icon" name="{{item.thumb ? item.thumb : 'photo-o'}}" size="100rpx" />
+            <view slot="text" class="brand-text">{{item.company}}</view>
           </van-grid-item>
-          <van-grid-item icon="photo-o" text="文字" />
-          <van-grid-item icon="photo-o" text="文字" />
-          <van-grid-item icon="photo-o" text="文字" />
         </van-grid>
       </view>
       <view class="recommend">
@@ -48,16 +51,18 @@
           <view class="more">更多</view>
         </view>
         <van-grid column-num="{{2}}" border="{{false}}" clickable>
-          <van-grid-item icon="photo-o" text="文字" bind:click="clickGoodsItem" />
-          <van-grid-item icon="photo-o" text="文字" />
-          <van-grid-item icon="photo-o" text="文字" />
-          <van-grid-item icon="photo-o" text="文字" />
-          <van-grid-item icon="photo-o" text="文字" />
-          <van-grid-item icon="photo-o" text="文字" />
-          <van-grid-item icon="photo-o" text="文字" />
-          <van-grid-item icon="photo-o" text="文字" />
+          <van-grid-item
+            wx:for="{{recommend.goods}}"
+            wx:key="itemid"
+            data-itemid="{{item.itemid}}"
+            bind:click="clickGoodsItem"
+          >
+            <van-icon slot="icon" name="{{item.thumb ? item.thumb : 'photo-o'}}" size="200rpx" />
+            <view slot="text" class="goods-text">{{item.title}}</view>
+          </van-grid-item>
         </van-grid>
       </view>
     </view>
+    <v-empty hidden="{{recommend.goods}}" />
   </scroll-view>
 </view>

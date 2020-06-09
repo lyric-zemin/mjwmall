@@ -1,4 +1,6 @@
-import { getClassify } from '../../api/classify'
+import { getClassify, getRecommend } from '../../api/classify'
+
+import { NO_DATA_CODE } from '../../config'
 
 const DEFAULT_CATID = '2829' // activeName使用的为全等比对，统一用字符串类型
 
@@ -11,7 +13,8 @@ Page({
     activeName: DEFAULT_CATID,
     classify: [],
     currentCatid: DEFAULT_CATID,
-    recommend: {}
+    recommend: {},
+    isJump: false // 是否通过点击首页导航的标志位
   },
 
   /**
@@ -19,17 +22,19 @@ Page({
    */
   onLoad(options) {
     const { catid } = options
-    this.getData().then(() => {
+    this.getClassify().then(() => {
       if (catid && catid !== this.data.activeName) {
         this.setData({
+          isJump: true,
           activeName: catid,
           currentCatid: catid
         })
       }
+      this.getRecommend()
     })
   },
 
-  getData() {
+  getClassify() {
     return getClassify().then(res => {
       this.setData({
         classify: res.data
@@ -38,12 +43,23 @@ Page({
   },
 
   getRecommend() {
-
+    getRecommend(this.data.currentCatid).then(res => {
+      if (res.code === NO_DATA_CODE) {
+        this.setData({
+          recommend: {}
+        })
+      } else {
+        this.setData({
+          recommend: res.data
+        })
+      }
+    })
   },
 
   onChange(e) {
     const catid = e.detail
     this.setData({
+      isJump: false,
       activeName: catid
     })
   },
@@ -53,9 +69,17 @@ Page({
     this.setData({
       currentCatid: catid
     })
+    this.getRecommend()
   },
 
   clickGoodsItem(e) {
+    const { itemid } = e.target.dataset
+    wx.navigateTo({
+      url: `/pages/goods-detail/goods-detail?itemid=${itemid}`
+    })
+  },
 
+  clickBrandItem(e) {
+    console.log(e)
   }
 })

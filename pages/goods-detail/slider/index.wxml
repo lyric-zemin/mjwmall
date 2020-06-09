@@ -1,0 +1,5 @@
+<swiper class="slider" indicator-dots>
+  <swiper-item class="item" wx:for="{{imgs}}" wx:key="*this">
+    <image src="{{item.thumb}}" class="img" />
+  </swiper-item>
+</swiper>

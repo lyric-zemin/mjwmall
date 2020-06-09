@@ -8,7 +8,7 @@ export function getClassify() {
 
 export function getRecommend(catid) {
   return http({
-    url: '',
+    url: '/mall/SortController/getRecommend',
     data: {
       catid
     }

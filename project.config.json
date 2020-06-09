@@ -25,7 +25,7 @@
 			"outputPath": ""
 		},
 		"bundle": true,
-		"useCompilerModule": true,
+		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
@@ -66,7 +66,14 @@
 					"id": 0,
 					"name": "商品分类",
 					"pathName": "pages/classify/classify",
-					"query": "",
+					"query": "catid=2823",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "商品详情",
+					"pathName": "pages/goods-detail/goods-detail",
+					"query": "itemid=6",
 					"scene": null
 				}
 			]

@@ -84,9 +84,28 @@ page {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10rpx;
 }
 
 .recommend .title .more {
   font-size: var(--size-small);
   padding: 5rpx;
+}
+
+.brand-text {
+  font-size: var(--size-normal);
+  width: 6em;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.goods-text {
+  font-size: var(--size-normal);
+  width: 10em;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
