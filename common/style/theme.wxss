@@ -10,6 +10,7 @@ page {
   --color-theme-text: #ff0000;
   
   /* 大小类 */
+  --size-large-x: 32rpx;
   --size-large: 28rpx;
   --size-normal: 26rpx;
   --size-small: 24rpx;

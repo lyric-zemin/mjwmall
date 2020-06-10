@@ -7,44 +7,12 @@
 >
   <van-tab wx:for="{{types}}" wx:key="index" title="{{item.name}}" name="{{index}}">
     <view class="container">
-      <view
-        class="item"
+      <v-item
         wx:for="{{dataCache[index]}}"
         wx:key="itemid"
         data-itemid="{{item.itemid}}"
-      >
-        <view class="img-wrap">
-          <image class="img" src="{{item.thumb}}" />
-        </view>
-        <view class="name">{{item.title}}</view>
-        <view class="tag-wrap">
-          <v-tag wx:if="{{item.self_camp}}" text="商家自营" />
-          <v-tag wx:if="{{item.in_stock}}" text="现货" />
-        </view>
-        <div class="foot-wrap">
-          <view class="price">￥{{filter.priceFilter(item.price)}}万</view>
-          <view class="pay">{{item.payment}}人付款</view>
-        </div>
-      </view>
+        item="{{item}}"
+      />
     </view>
   </van-tab>
 </van-tabs>
-
-<wxs module="filter">
-  function priceFilter(num) {
-    var ret = parseFloat(num/10000)
-    var ary = ret.toString().split('.')
-    var ary1 = ary[1]
-    if (ary1) {
-      var flo = ary1
-      if(flo.length>2) {
-        flo = flo.slice(0,2)
-      }
-      ret = ary[0] + '.' + flo
-    }
-    return ret
-  }
-  module.exports = {
-    priceFilter: priceFilter
-  }
-</wxs>

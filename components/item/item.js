@@ -1,16 +1,12 @@
-// components/tag/tag.js
+// components/item/item.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    text: {
-      type: String,
-      value: ''
-    },
-    check: {
-      type: Boolean,
-      value: true
+    item: {
+      type: Object,
+      value: {}
     }
   },
 

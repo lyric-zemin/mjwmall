@@ -2,9 +2,14 @@
   "navigationBarTitleText": "商品详情",
   "usingComponents": {
     "v-slider": "/pages/goods-detail/slider/index",
+    "v-tag": "/components/tag/tag",
     "wxParse": "/components/wxParse/wxParse",
     "van-goods-action": "@vant/weapp/goods-action/index",
     "van-goods-action-icon": "@vant/weapp/goods-action-icon/index",
-    "van-goods-action-button": "@vant/weapp/goods-action-button/index"
+    "van-goods-action-button": "@vant/weapp/goods-action-button/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-stepper": "@vant/weapp/stepper/index"
   }
 }

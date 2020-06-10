@@ -8,3 +8,12 @@ export function getGoodsDetail(itemid) {
     }
   })
 }
+
+export function getGoodsAttrs(itemid) {
+  return http({
+    url: '/mall/SortController/Attribute',
+    data: {
+      itemid
+    }
+  })
+}

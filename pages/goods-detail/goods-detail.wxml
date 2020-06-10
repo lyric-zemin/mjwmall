@@ -1,8 +1,86 @@
 <scroll-view class="body" scroll-y>
   <view class="container">
     <view class="slider-wrap">
-      <v-slider imgs="{{goodsDetail.thumb}}" />
+      <v-slider imgs="{{goodsDetail.thumbb}}" />
     </view>
+
+    <view class="middle">
+      <view class="m-price">￥{{goodsDetail.price}}</view>
+      <view class="f-price">
+        价格：
+        <text class="text">￥{{goodsDetail.market_price}}</text>
+      </view>
+      <view class="name">{{goodsDetail.title}}</view>
+      <view class="tag-wrap">
+        <v-tag wx:if="{{goodsDetail.self_camp}}" text="商家自营" />
+        <v-tag wx:if="{{goodsDetail.in_stock}}" text="现货" />
+      </view>
+      <view class="inventory">库存：{{goodsDetail.amount}}台</view>
+    </view>
+
+    <view class="parameter-wrap">
+      <view class="parameter" bind:tap="open">
+        <view class="text">
+          <text class="m-text">选择</text>
+          <text class="f-text">具体参数、型号、属性</text>
+        </view>
+        <van-icon name="more-o" size="44rpx" color="#959595" />
+      </view>
+      <!-- 参数弹出层Start -->
+      <van-popup
+        show="{{show}}"
+        round
+        closeable
+        position="bottom"
+        custom-style="padding:45rpx 25rpx 100rpx;max-height:60%"
+        bind:close="close"
+      >
+        <view class="pop-container">
+          <view class="head">
+            <image src="{{goodsDetail.thumb}}" class="img" />
+            <view class="detail">
+              <view class="price">￥{{realityPrice*num ? realityPrice*num : '?'}}</view>
+              <view class="inventory">库存：{{goodsDetail.amount}}台</view>
+              <view class="choice">已选：{{selected ? selected: '默认'}}</view>
+            </view>
+          </view>
+          <scroll-view scroll-y class="params">
+            <view class="params-container">
+              <view class="param-item" wx:for="{{attrs}}" wx:key="name">
+                <view class="name">{{item.name}}</view>
+                <view class="item-wrap">
+                  <v-tag
+                    wx:for="{{item.char}}"
+                    wx:key="*this"
+                    wx:for-item="attr"
+                    wx:for-index="attrIndex"
+                    text="{{attr}}"
+                    data-attr="{{attr}}"
+                    data-index="{{index}}"
+                    check="{{attr == checkAttr[index] ? true : false}}"
+                    bind:tap="selectTag"
+                  />
+                </view>
+              </view>
+              <view class="num-wrap">
+                <view class="name">购买数量</view>
+                <van-stepper value="{{num}}" bind:change="numChange" />
+              </view>
+            </view>
+          </scroll-view>
+        </view>
+      </van-popup>
+      <!-- 参数弹出层End -->
+    </view>
+
+    <view class="detail-wrap">
+      <view class="title">商品详情</view>
+      <view class="content">
+        <wxParse nodes="{{goodsDetail.content}}" />
+      </view>
+    </view>
+
+    <van-divider contentPosition="center">已经到底了</van-divider>
   </view>
 </scroll-view>
 

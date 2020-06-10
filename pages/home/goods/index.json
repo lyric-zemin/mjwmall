@@ -3,6 +3,6 @@
   "usingComponents": {
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
-    "v-tag": "/components/tag/tag"
+    "v-item": "/components/item/item"
   }
 }
