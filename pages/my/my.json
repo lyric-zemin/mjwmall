@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "my-nav-bar": "/pages/my/nav-bar/index",
+    "v-order": "/pages/my/order/index",
+    "v-menu": "/pages/my/menu/index"
+  }
 }

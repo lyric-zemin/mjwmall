@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "产品中心",
+  "usingComponents": {
+    "v-search": "/components/search/search",
+    "v-tag": "/components/tag/tag",
+    "v-item": "/components/item/item"
+  }
+}

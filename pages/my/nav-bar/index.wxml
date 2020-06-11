@@ -1,0 +1,7 @@
+<view class="nav-bar" style="padding-top: {{safeHeight ? safeHeight + 'px' : ''}}">
+  <open-data type="userAvatarUrl" class="avatar" />
+  <view class="info">
+    <open-data type="userNickName" class="name" />
+    <!-- <view class="member">会员等级：</view> -->
+  </view>
+</view>

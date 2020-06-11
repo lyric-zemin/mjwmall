@@ -1,0 +1,22 @@
+<view class="search-wrap">
+  <v-search placeholder="请输入产品关键字，如品牌、型号等" custom-class="v-search" />
+</view>
+
+<view class="filter">
+  <view class="main">
+    <view class="item">综合</view>
+    <view class="item">销量</view>
+    <view class="item">价格</view>
+    <view class="item">筛选</view>
+  </view>
+  <view class="sub">
+    <v-tag text="新品上市" size="large" />
+    <v-tag text="现货" check="" size="large" />
+    <v-tag text="二手设备" check="" size="large" />
+    <v-tag text="自营" check="" size="large" />
+  </view>
+</view>
+
+<view class="list">
+  <v-item />
+</view>

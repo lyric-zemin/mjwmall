@@ -1,2 +1,24 @@
-<!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<my-nav-bar />
+
+<view class="presentation">
+  <view class="favorite">
+    <view class="num">8</view>
+    <view class="name">收藏夹</view>
+  </view>
+  <view class="attention">
+    <view class="num">8</view>
+    <view class="name">我的关注</view>
+  </view>
+  <view class="spoor">
+    <view class="num">118</view>
+    <view class="name">足迹</view>
+  </view>
+</view>
+
+<view class="order-wrap">
+  <v-order />
+</view>
+
+<view class="menu">
+  <v-menu />
+</view>

@@ -4,7 +4,8 @@
     "pages/classify/classify",
     "pages/shopping/shopping",
     "pages/my/my",
-    "pages/goods-detail/goods-detail"
+    "pages/goods-detail/goods-detail",
+    "pages/goods-list/goods-list"
   ],
   "window": {
     "backgroundTextStyle": "light",

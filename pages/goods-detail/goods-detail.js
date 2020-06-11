@@ -1,4 +1,4 @@
-import { getGoodsDetail, getGoodsAttrs } from '../../api/goods-detail'
+import { getGoodsDetail, getGoodsAttrs, getGoodsPrice } from '../../api/goods-detail'
 
 const REALITY_PRICE = 'realityPrice'  // 真实价格
 const SELECTED = 'selected'  // 已选属性字符串
@@ -63,6 +63,7 @@ Page({
       checkAttr: this.data.checkAttr
     })
     this.setSelected()
+    this.getPrice()
   },
 
   numChange(e) {
@@ -89,6 +90,15 @@ Page({
         checkAttr: this.data.checkAttr
       })
       this.setSelected()
+      this.getPrice()
+    })
+  },
+
+  getPrice() {
+    getGoodsPrice(this.data.goodsDetail.itemid, this.data[SELECTED]).then(res => {
+      this.setData({
+        [REALITY_PRICE]: +res.data.price1
+      })
     })
   },
 

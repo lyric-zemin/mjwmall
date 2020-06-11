@@ -1,5 +1,6 @@
 <van-tag
   color="{{check ? '#ffbcbc' : '#f8f8f8'}}"
   text-color="{{check ? '#ff0000' : '#959595'}}"
+  size="{{size}}"
   round
 >{{text}}</van-tag>

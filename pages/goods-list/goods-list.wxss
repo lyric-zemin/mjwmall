@@ -1,0 +1,48 @@
+page {
+  background-color: var(--color-background);
+}
+
+.search-wrap {
+  padding: 0 10rpx;
+  background-color: var(--color);
+}
+
+.v-search {
+  background-color: var(--color-background) !important;
+  text-align: left !important;
+  text-indent: 20rpx;
+  height: 60rpx !important;
+}
+
+.filter {
+  background-color: var(--color);
+  padding-bottom: 20rpx;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main .item {
+  flex: 1;
+  text-align: center;
+  padding: 10rpx 0;
+}
+
+.sub {
+  padding: 0 30rpx;
+  display: flex;
+}
+
+.sub v-tag {
+  margin: 10rpx 20rpx 10rpx 0;
+}
+
+.list {
+  margin-top: 20rpx;
+  padding: 0 10rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

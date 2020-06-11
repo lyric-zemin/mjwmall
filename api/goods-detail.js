@@ -17,3 +17,13 @@ export function getGoodsAttrs(itemid) {
     }
   })
 }
+
+export function getGoodsPrice(itemid, attr) {
+  return http({
+    url: '/mall/SortController/Price',
+    data: {
+      itemid,
+      attr
+    }
+  })
+}

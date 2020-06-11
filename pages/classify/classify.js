@@ -79,6 +79,12 @@ Page({
     })
   },
 
+  moreGoods() {
+    wx.navigateTo({
+      url: `/pages/goods-list/goods-list?catid=${this.data.currentCatid}`
+    })
+  },
+
   clickBrandItem(e) {
     console.log(e)
   }

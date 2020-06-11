@@ -1,1 +1,27 @@
-/* pages/my/my.wxss */
+page {
+  background-color: var(--color-background);
+}
+
+.presentation {
+  display: flex;
+  justify-content: center;
+  margin: 22rpx 0;
+}
+
+.presentation > view {
+  flex: 0 0 30%;
+  text-align: center;
+  font-size: var(--size-large);
+  color: var(--color-text);
+}
+
+.order-wrap {
+  padding: 0 10rpx;
+}
+
+.menu {
+  margin: 10rpx;
+  background-color: var(--color);
+  border-radius: 10rpx;
+  overflow: hidden;
+}

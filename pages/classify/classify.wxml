@@ -48,7 +48,7 @@
       <view class="recommend">
         <view class="title">
           <view class="text">产品推荐</view>
-          <view class="more">更多</view>
+          <view class="more" bind:tap="moreGoods">更多</view>
         </view>
         <van-grid column-num="{{2}}" border="{{false}}" clickable>
           <van-grid-item

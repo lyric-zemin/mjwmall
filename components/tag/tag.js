@@ -11,6 +11,10 @@ Component({
     check: {
       type: Boolean,
       value: true
+    },
+    size: {
+      type: String,
+      value: ''
     }
   },
 

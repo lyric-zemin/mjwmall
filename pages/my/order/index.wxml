@@ -1,0 +1,7 @@
+<view class="order">
+  <van-grid column-num="{{5}}" border="{{false}}" clickable>
+    <van-grid-item wx:for="{{order}}" wx:key="type" text="{{item.text}}">
+      <image slot="icon" src="{{item.img}}" class="img" />
+    </van-grid-item>
+  </van-grid>
+</view>
