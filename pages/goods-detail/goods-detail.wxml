@@ -24,7 +24,7 @@
           <text class="m-text">选择</text>
           <text class="f-text">具体参数、型号、属性</text>
         </view>
-        <van-icon name="more-o" size="44rpx" color="#959595" />
+        <van-icon name="weapp-nav" size="44rpx" color="#959595" />
       </view>
       <!-- 参数弹出层Start -->
       <van-popup

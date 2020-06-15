@@ -26,8 +26,18 @@ page {
 
 .main .item {
   flex: 1;
-  text-align: center;
   padding: 10rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main .item.select {
+  color: var(--color-theme);
+}
+
+.main .item van-icon {
+  margin-left: 4rpx;
 }
 
 .sub {
@@ -45,4 +55,42 @@ page {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+.filter-container {
+  width: 100%;
+  min-height: 30%;
+  max-height: 100%;
+  box-sizing: border-box;
+  padding: 16rpx 0 100rpx;
+  position: relative;
+  display: flex;
+}
+
+/* 按钮部分样式 */
+.btn-wrap {
+  position: absolute;
+  right: 24rpx;
+  bottom: 20rpx;
+}
+
+.reset,
+.confirm {
+  padding: 0 54rpx !important;
+  height: 60rpx !important;
+}
+
+.reset {
+  border-radius: 30rpx 0 0 30rpx !important;
+}
+
+.confirm {
+  border-radius: 0 30rpx 30rpx 0 !important;
+}
+/* 按钮部分样式 */
+
+.filter-content {
+  flex: 1;
+  padding: 0 16rpx;
+  overflow-y: scroll;
 }

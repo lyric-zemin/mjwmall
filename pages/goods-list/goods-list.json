@@ -3,6 +3,9 @@
   "usingComponents": {
     "v-search": "/components/search/search",
     "v-tag": "/components/tag/tag",
-    "v-item": "/components/item/item"
+    "v-item": "/components/item/item",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-icon": "@vant/weapp/icon/index"
   }
 }

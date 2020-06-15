@@ -4,19 +4,58 @@
 
 <view class="filter">
   <view class="main">
-    <view class="item">综合</view>
-    <view class="item">销量</view>
-    <view class="item">价格</view>
-    <view class="item">筛选</view>
+    <view
+      wx:for="{{sort}}"
+      wx:key="index"
+      data-index="{{index}}"
+      data-value="{{item.char}}"
+      class="item {{filters.sort == item.char ? 'select' : ''}}"
+      bind:tap="toggleSort"
+    >
+      {{item.name}}
+      <van-icon name="{{item.char > 0 ? 'ascending' : 'descending'}}" />
+    </view>
+    <view class="item" bind:tap="open">
+      筛选
+      <van-icon name="filter-o" />
+    </view>
   </view>
   <view class="sub">
-    <v-tag text="新品上市" size="large" />
-    <v-tag text="现货" check="" size="large" />
-    <v-tag text="二手设备" check="" size="large" />
-    <v-tag text="自营" check="" size="large" />
+    <v-tag
+      wx:for="{{type}}"
+      wx:key="index"
+      data-index="{{index}}"
+      data-value="{{item.char}}"
+      check="{{filters.type == item.char ? true : false}}"
+      text="{{item.name}}"
+      size="large"
+      bind:tap="toggleType"
+    />
   </view>
 </view>
 
 <view class="list">
   <v-item />
 </view>
+
+<van-popup
+  show="{{show}}"
+  position="right"
+  custom-style="width:540rpx;height:100%;"
+  duration="{{200}}"
+  bind:close="close"
+>
+  <view class="filter-container">
+    <view class="filter-content">
+      <view>
+        <view class="brand">
+          <view class="name">品牌</view>
+        </view>
+      </view>
+    </view>
+    <view class="btn-wrap">
+      <van-button color="linear-gradient(to right, #ffca1d, #ff8c18)" custom-class="reset">重置</van-button>
+      <van-button color="linear-gradient(to right, #fe5b33, #ee0d24)" custom-class="confirm">确定</van-button>
+    </view>
+  </view>
+</van-popup>
