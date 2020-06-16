@@ -21,6 +21,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onTap() {
+      wx.navigateTo({
+        url: `/pages/goods-detail/goods-detail?itemid=${this.data.item.itemid}`
+      })
+    }
   }
 })

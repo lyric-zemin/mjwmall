@@ -1,1 +1,20 @@
-/* pages/shopping/shopping.wxss */
+page {
+  background-color: var(--color-background);
+}
+
+.container {
+  position: fixed;
+  top: 10rpx;
+  left: 10rpx;
+  right: 10rpx;
+  bottom: 110rpx;
+  background-color: var(--color);
+  border-radius: 10rpx;
+  overflow: hidden;
+  /* box-sizing: border-box; */
+  width: auto;
+}
+
+.shopping-wrap {
+  padding: 10rpx;
+}

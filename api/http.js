@@ -1,4 +1,5 @@
 import { API_BASE_URL, OK_STATUS } from '../config'
+import { state } from '../utils/store'
 
 export default function http({
   url,
@@ -10,7 +11,7 @@ export default function http({
     wx.request({
       url: API_BASE_URL + url,
       method,
-      header,
+      header: Object.assign({ Authorization: state.token }, header),
       data,
       success(res) {
         if (res.statusCode === OK_STATUS) {

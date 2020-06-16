@@ -1,4 +1,5 @@
 import http from '../api/http'
+import { mutations } from './store'
 
 export default function login() {
   return new Promise((resolve, reject) => {
@@ -12,7 +13,8 @@ export default function login() {
               code: res.code
             }
           }).then(res => {
-            
+            console.log(res)
+            // mutations.setToken(res)
           })
         } else {
           reject(res)

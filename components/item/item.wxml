@@ -1,4 +1,4 @@
-<view class="item">
+<view class="item" bind:tap="onTap">
   <view class="img-wrap">
     <image class="img" src="{{item.thumb}}" />
   </view>

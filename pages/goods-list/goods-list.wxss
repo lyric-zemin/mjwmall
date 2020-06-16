@@ -94,3 +94,12 @@ page {
   padding: 0 16rpx;
   overflow-y: scroll;
 }
+
+.empty-wrap {
+  position: fixed;
+  top: 230rpx;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--color);
+}

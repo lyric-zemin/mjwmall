@@ -1,2 +1,22 @@
-<!--pages/shopping/shopping.wxml-->
-<text>pages/shopping/shopping.wxml</text>
+<scroll-view scroll-y class="container">
+  <view class="shopping-wrap">
+    <shopping-item />
+    <shopping-item />
+    <shopping-item />
+    <shopping-item />
+    <shopping-item />
+    <shopping-item />
+    <shopping-item />
+    <shopping-item />
+    <shopping-item />
+    <shopping-item />
+  </view>
+</scroll-view>
+
+<van-submit-bar price="{{ 3050 }}" button-text="提交订单" bind:submit="confirm">
+  <van-checkbox
+    value="{{completeSelection}}"
+    checked-color="#cf0011"
+    bind:change="toggleSelection"
+  >全选</van-checkbox>
+</van-submit-bar>

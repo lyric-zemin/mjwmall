@@ -34,8 +34,11 @@
   </view>
 </view>
 
-<view class="list">
-  <v-item />
+<view class="list" hidden="{{!list.length}}">
+  <v-item wx:for="{{list}}" wx:key="itemid" item="{{item}}" />
+</view>
+<view class="empty-wrap" hidden="{{list.length}}">
+  <v-empty />
 </view>
 
 <van-popup

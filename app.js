@@ -1,8 +1,9 @@
-import * as store from './utils/store'
+import { state } from './utils/store'
+import login from './utils/login'
 
 App({
-  onLaunch: function() {
-
+  onLaunch() {
+    // login()
   },
-  store
+  store: state
 })

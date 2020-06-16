@@ -1,0 +1,28 @@
+<view class="shopping-item">
+  <van-checkbox value="{{select}}" checked-color="#cf0011" bind:change="selcetItem" />
+  <view class="shopping-content">
+    <view class="img-wrap">
+      <image src mode="widthFix" class="img" />
+    </view>
+    <view class="des-wrap">
+      <view class="name">台群精机T-V856B立式加工中心850三线轨加工中心855加工中心精加工加工</view>
+      <view class="type">型号：T-V856B</view>
+      <view class="tag-wrap">
+        <v-tag text="商家自营" />
+      </view>
+      <view class="foot-wrap">
+        <view class="left">
+          <view class="price">¥530000.00</view>
+          <view class="btn">
+            <van-icon name="weapp-nav" bind:tap="toggleBtn" />
+            <van-transition custom-class="btn-inner" name="fade-right" duration="100" show="{{showBtn}}">
+              <van-tag plain round>移入收藏夹</van-tag>
+              <van-tag plain round>删除</van-tag>
+            </van-transition>
+          </view>
+        </view>
+        <van-stepper value="{{ 1 }}" bind:change="onChange" />
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,4 +1,5 @@
 import { getGoodsList } from '../../api/goods-list'
+import { toastMess } from '../../utils/helper'
 
 const SORT = {
   synthesis: {
@@ -58,7 +59,7 @@ Page({
     this.data.filters.catid = catid
     this.data.filters.sort = SORT[DEFAULT_SORT].char
     this.data.filters.type = TYPE[DEFAULT_TYPE].char
-    
+
     this.setData({
       filters: this.data.filters
     })
@@ -67,14 +68,17 @@ Page({
 
   getList() {
     getGoodsList(this.data.filters).then(res => {
-      console.log(res)
+      this.setData({
+        list: res.data
+      })
     })
   },
 
   open() {
-    this.setData({
-      show: true
-    })
+    toastMess('功能开发中...')
+    // this.setData({
+    //   show: true
+    // })
   },
 
   close() {
@@ -84,7 +88,8 @@ Page({
   },
 
   toggleSort(e) {
-    const { index, value } = e.target.dataset
+    const { index, value } = e.currentTarget.dataset
+    console.log(index, value)
     if (this.data.filters.sort == value) {
       this.data.sort[index].char = -value
       this.data.filters.sort = -value
