@@ -5,23 +5,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    completeSelection: false
+    checkAll: false,
+    checkQuantity: 1,
+    totalPrice: 0,  //精确到小数点后两位数
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-
+  onLoad() {
+    
   },
 
   toggleSelection() {
     this.setData({
-      completeSelection: !this.data.completeSelection
+      checkAll: !this.data.checkAll
     })
   },
 
-  confirm() {
+  settlement() {
 
   }
 })

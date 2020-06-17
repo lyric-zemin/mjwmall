@@ -42,5 +42,8 @@
       }
     ]
   },
+  "usingComponents": {
+    "login": "/components/login/login"
+  },
   "sitemapLocation": "sitemap.json"
 }

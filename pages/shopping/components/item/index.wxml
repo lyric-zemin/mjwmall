@@ -2,7 +2,7 @@
   <van-checkbox value="{{select}}" checked-color="#cf0011" bind:change="selcetItem" />
   <view class="shopping-content">
     <view class="img-wrap">
-      <image src mode="widthFix" class="img" />
+      <!-- <image src mode="aspectFill" class="img" /> -->
     </view>
     <view class="des-wrap">
       <view class="name">台群精机T-V856B立式加工中心850三线轨加工中心855加工中心精加工加工</view>

@@ -22,3 +22,5 @@
 <view class="menu">
   <v-menu />
 </view>
+
+<login />

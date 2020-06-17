@@ -13,10 +13,12 @@
   </view>
 </scroll-view>
 
-<van-submit-bar price="{{ 3050 }}" button-text="提交订单" bind:submit="confirm">
-  <van-checkbox
-    value="{{completeSelection}}"
-    checked-color="#cf0011"
-    bind:change="toggleSelection"
-  >全选</van-checkbox>
+<van-submit-bar
+  price="{{totalPrice}}"
+  button-text="{{checkQuantity ? '结算（' + checkQuantity + '）' : '未选择'}}"
+  bind:submit="settlement"
+>
+  <van-checkbox value="{{checkAll}}" checked-color="#cf0011" bind:change="toggleSelection">全选</van-checkbox>
 </van-submit-bar>
+
+<login />

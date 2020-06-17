@@ -91,3 +91,5 @@
   <van-goods-action-button text="加入购物车" type="warning" />
   <van-goods-action-button text="立即购买" />
 </van-goods-action>
+
+<login />

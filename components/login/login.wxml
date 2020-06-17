@@ -1,0 +1,12 @@
+<van-overlay show="{{show}}" z-index="{{999}}">
+  <view class="login-container">
+    <view class="login-inner">
+      <view>为了更好的体验</view>
+      <view>需要您授权登录</view>
+      <view class="btn-container">
+        <van-button type="default" bind:click="noLogin">暂不登录</van-button>
+        <van-button type="primary" open-type="getUserInfo" bind:getuserinfo="login">授权登录</van-button>
+      </view>
+    </view>
+  </view>
+</van-overlay>
