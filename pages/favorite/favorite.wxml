@@ -1,0 +1,28 @@
+<view class="container">
+  <view class="favorite">
+    <van-tabs active="{{activeItem}}" swipeable color="#cf0011" bind:change="changeItem">
+      <van-tab wx:for="{{itemType}}" wx:key="index" name="{{index}}" title="{{item.title}}">
+        <view class="content">
+          <view
+            class="item"
+            wx:for="{{goodsList[index]}}"
+            wx:key="itemid"
+            data-itemid="{{item.itemid}}"
+          >
+            <image class="img" src="{{item.thumb}}" mode="aspectFit" />
+            <view class="detail">
+              <view class="name line2">{{item.title}}</view>
+              <view class="inner">
+                <view class="box">
+                  <view class="price">{{item.price}}</view>
+                  <van-tag plain round data-itemid="{{item.itemid}}" bind:tap="delFavorite">移出收藏夹</van-tag>
+                </view>
+                <view class="collect">{{item.collect_total}}人收藏</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
+</view>

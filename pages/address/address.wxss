@@ -1,0 +1,57 @@
+page {
+  background-color: var(--color-background);
+}
+
+.address {
+  margin-top: 16rpx;
+  padding-bottom: 140rpx;
+}
+
+.item {
+  padding: 14rpx;
+  background-color: var(--color);
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+  align-items: center;
+  font-size: var(--size-large);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.left {
+  flex: 1;
+  margin-right: 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  margin-left: 16rpx;
+}
+
+.name {
+  margin-right: 10rpx;
+}
+
+.detail {
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  margin-left: 10rpx;
+}
+
+.right {
+  padding: 20rpx;
+}
+
+.button-container {
+  position: fixed;
+  bottom: 20rpx;
+  left: 0;
+  right: 0;
+  padding: 0 60rpx;
+}

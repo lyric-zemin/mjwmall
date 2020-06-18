@@ -11,7 +11,7 @@ export default function http({
     wx.request({
       url: API_BASE_URL + url,
       method,
-      header: Object.assign({ Authorization: state.token }, header),
+      header: Object.assign({ Authorization: 'Bearer ' + state.token }, header),
       data,
       success(res) {
         if (res.statusCode === OK_STATUS) {

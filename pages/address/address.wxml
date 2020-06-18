@@ -1,0 +1,24 @@
+<view class="container">
+  <view class="address">
+    <view class="item" wx:for="{{addressList}}">
+      <view class="left">
+        <van-icon name="location" color="#feb134" size="36rpx" />
+        <view class="content">
+          <view class="info">
+            <text class="name">{{item.truename}}</text>
+            <text class="phone">{{item.mobile}}</text>
+          </view>
+          <view class="detail">
+            <v-tag wx:if="{{item.is_default}}" text="默认地址" />
+            <view class="text">{{item.address}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="right">编辑</view>
+    </view>
+  </view>
+</view>
+
+<view class="button-container">
+  <van-button round color="#cf0011" size="large" bind:click="addAddress">新增地址</van-button>
+</view>

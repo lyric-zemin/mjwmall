@@ -1,0 +1,86 @@
+<view class="container">
+  <view class="order">
+    <van-tabs
+      swipeable
+      animated
+      color="#cf0011"
+      active="{{currentStatus}}"
+      bind:change="changeStatus"
+    >
+      <van-tab wx:for="{{orderStatus}}" wx:key="index" name="{{index}}" title="{{item.title}}">
+        <view class="content">
+          <view
+            class="item"
+            wx:for="{{orderList[index]}}"
+            wx:key="itemid"
+            data-itemid="{{item.itemid}}"
+          >
+            <view class="top">
+              <view class="company">{{item.company}}</view>
+              <view class="status">{{status[item.status]}}</view>
+            </view>
+            <view class="middle">
+              <image class="img" src="{{item.thumb}}" mode="aspectFit" />
+              <view class="detail">
+                <view class="left">
+                  <view class="name line2">{{item.title}}</view>
+                  <view class="type line2">{{item.attr}}</view>
+                </view>
+                <view class="right">
+                  <view class="price">￥{{item.price}}</view>
+                  <view class="num">X{{item.number}}</view>
+                </view>
+              </view>
+            </view>
+            <view class="bottom">
+              <view class="money">
+                <text class="total">总价￥{{item.price*item.number}}，优惠￥{{item.discount}}</text>
+                <text class="reality">实付款￥{{item.amount}}</text>
+              </view>
+              <!-- 功能按钮区域 -->
+              <view class="button">
+                <van-button wx:if="{{item.status==4}}" plain round size="small" bind:click>申请开票</van-button>
+
+                <van-button
+                  wx:if="{{item.status==3 || item.status==4}}"
+                  plain
+                  round
+                  size="small"
+                  bind:click
+                >查看物流</van-button>
+
+                <van-button wx:if="{{item.status==1}}" plain round size="small" bind:click>取消付款</van-button>
+                <van-button
+                  wx:if="{{item.status==1}}"
+                  plain
+                  round
+                  size="small"
+                  type="danger"
+                  bind:click
+                >立即付款</van-button>
+
+                <van-button
+                  wx:if="{{item.status==4}}"
+                  plain
+                  round
+                  size="small"
+                  type="danger"
+                  bind:click
+                >确认收货</van-button>
+
+                <van-button
+                  wx:if="{{item.status==4 || item.status==8 || item.status==9}}"
+                  plain
+                  round
+                  size="small"
+                  bind:click
+                >删除订单</van-button>
+              </view>
+              <!-- 功能按钮区域 -->
+            </view>
+          </view>
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
+</view>

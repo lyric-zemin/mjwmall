@@ -5,7 +5,11 @@
     "pages/shopping/shopping",
     "pages/my/my",
     "pages/goods-detail/goods-detail",
-    "pages/goods-list/goods-list"
+    "pages/goods-list/goods-list",
+    "pages/favorite/favorite",
+    "pages/order/order",
+    "pages/address/address",
+    "pages/add-address/add-address"
   ],
   "window": {
     "backgroundTextStyle": "light",

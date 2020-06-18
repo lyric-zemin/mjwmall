@@ -20,23 +20,23 @@ Component({
       {
         img: './image/payment.png',
         text: '待付款',
-        type: 'payment'
+        type: 'waitPay'
       },
       {
         img: './image/receipt.png',
         text: '待发货',
-        type: 'receipt'
+        type: 'waitDelivery'
       },
       {
         img: './image/delivery.png',
         text: '待收货',
-        type: 'delivery'
+        type: 'waitReceipt'
       },
-      {
-        img: './image/afterSale.png',
-        text: '退款/售后',
-        type: 'afterSale'
-      }
+      // {
+      //   img: './image/afterSale.png',
+      //   text: '退款/售后',
+      //   type: 'afterSale'
+      // }
     ]
   },
 

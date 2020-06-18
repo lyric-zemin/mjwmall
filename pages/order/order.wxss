@@ -1,0 +1,97 @@
+page {
+  background-color: var(--color-background);
+}
+
+.content {
+  margin-top: 20rpx;
+}
+
+.item {
+  padding: 20rpx;
+  border-radius: 10rpx;
+  background-color: var(--color);
+  margin-bottom: 20rpx;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.company {
+  font-size: var(--size-normal);
+  color: var(--color-text);
+}
+
+.status {
+  font-size: var(--size-normal);
+  color: var(--color-theme);
+}
+
+.middle {
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.img {
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 10rpx;
+  border-radius: 10rpx;
+}
+
+.detail {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left {
+  flex: 1;
+  margin-right: 30rpx;
+}
+
+.name {
+  font-size: var(--size-large);
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.type {
+  font-size: var(--size-normal);
+  color: var(--color-text-i);
+  margin-top: 10rpx;
+}
+
+.right {
+  text-align: right;
+  font-size: var(--size-normal);
+  color: var(--color-text-i);
+  line-height: 1.5;
+}
+
+.bottom {
+  text-align: right;
+  margin-top: 16rpx;
+}
+
+.money {
+  padding: 20rpx 0;
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+  font-size: var(--size-normal);
+}
+
+.total {
+  margin-right: 45rpx;
+  color: var(--color-text-i);
+}
+
+.button {
+  margin-top: 20rpx;
+}
+
+.button van-button {
+  margin-left: 20rpx;
+}

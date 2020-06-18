@@ -1,0 +1,10 @@
+page {
+  background-color: var(--color-background);
+}
+
+.add-address {
+  margin: 10rpx 0;
+  background-color: var(--color);
+  padding: 20rpx;
+  border-radius: 10rpx;
+}

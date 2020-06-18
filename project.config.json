@@ -96,6 +96,34 @@
 					"pathName": "pages/shopping/shopping",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的收藏",
+					"pathName": "pages/favorite/favorite",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单列表",
+					"pathName": "pages/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "地址管理",
+					"pathName": "pages/address/address",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新增或者编辑收货地址",
+					"pathName": "pages/add-address/add-address",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

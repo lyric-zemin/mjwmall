@@ -1,6 +1,11 @@
 <view class="order">
-  <van-grid column-num="{{5}}" border="{{false}}" clickable>
-    <van-grid-item wx:for="{{order}}" wx:key="type" text="{{item.text}}">
+  <van-grid column-num="{{4}}" border="{{false}}" clickable>
+    <van-grid-item
+      wx:for="{{order}}"
+      wx:key="type"
+      text="{{item.text}}"
+      url="/pages/order/order?status={{item.type}}"
+    >
       <image slot="icon" src="{{item.img}}" class="img" />
     </van-grid-item>
   </van-grid>

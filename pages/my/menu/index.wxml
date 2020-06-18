@@ -1,4 +1,6 @@
 <van-cell-group border="{{false}}">
-  <van-cell icon="location-o" title="绑定小程序" value="未绑定" is-link />
+  <van-cell icon="location-o" title="地址管理" is-link url="/pages/address/address" />
+  <van-cell icon="location-o" title="发票管理" is-link />
+  <van-cell icon="location-o" title="关于我们" is-link />
   <van-cell icon="location-o" title="客服热线" value="400-133-1213" is-link border="{{ false }}" />
 </van-cell-group>
