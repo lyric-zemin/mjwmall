@@ -16,6 +16,10 @@ Page({
     this.getAddress()
   },
 
+  onShow() {
+    this.getAddress()
+  },
+
   getAddress() {
     getAddress().then(res => {
       this.setData({
@@ -27,6 +31,13 @@ Page({
   addAddress() {
     wx.navigateTo({
       url: '/pages/add-address/add-address'
+    })
+  },
+
+  editAddress(e) {
+    const { itemid } = e.currentTarget.dataset
+    wx.navigateTo({
+      url: `/pages/add-address/add-address?itemid=${itemid}`
     })
   }
 })

@@ -40,8 +40,8 @@ page {
   align-items: center;
 }
 
-.text {
-  margin-left: 10rpx;
+v-tag {
+  margin-right: 10rpx;
 }
 
 .right {

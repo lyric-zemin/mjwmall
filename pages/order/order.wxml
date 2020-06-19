@@ -39,19 +39,36 @@
               </view>
               <!-- 功能按钮区域 -->
               <view class="button">
-                <van-button wx:if="{{item.status==4}}" plain round size="small" bind:click>申请开票</van-button>
+                <van-button
+                  wx:if="{{item.status==4}}"
+                  data-itemid="{{item.itemid}}"
+                  plain
+                  round
+                  size="small"
+                  bind:click
+                >申请开票</van-button>
 
                 <van-button
                   wx:if="{{item.status==3 || item.status==4}}"
+                  data-itemid="{{item.itemid}}"
                   plain
                   round
                   size="small"
                   bind:click
                 >查看物流</van-button>
 
-                <van-button wx:if="{{item.status==1}}" plain round size="small" bind:click>取消付款</van-button>
                 <van-button
                   wx:if="{{item.status==1}}"
+                  data-itemid="{{item.itemid}}"
+                  plain
+                  round
+                  size="small"
+                  bind:click
+                >取消付款</van-button>
+
+                <van-button
+                  wx:if="{{item.status==1}}"
+                  data-itemid="{{item.itemid}}"
                   plain
                   round
                   size="small"
@@ -60,16 +77,18 @@
                 >立即付款</van-button>
 
                 <van-button
-                  wx:if="{{item.status==4}}"
+                  wx:if="{{item.status==3}}"
+                  data-itemid="{{item.itemid}}"
                   plain
                   round
                   size="small"
                   type="danger"
-                  bind:click
+                  bind:click="confirmReceipt"
                 >确认收货</van-button>
 
                 <van-button
                   wx:if="{{item.status==4 || item.status==8 || item.status==9}}"
+                  data-itemid="{{item.itemid}}"
                   plain
                   round
                   size="small"

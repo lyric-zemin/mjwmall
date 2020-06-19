@@ -10,6 +10,7 @@
     <van-field
       data-name="mobile"
       label="手机号"
+      type="number"
       placeholder="收货人手机号码"
       value="{{addressData['mobile']}}"
       bind:change="onChange"
@@ -18,8 +19,9 @@
       data-name="regionId"
       label="省份"
       placeholder="请选择"
-      value="{{addressData['regionId']}}"
-      bind:change="onChange"
+      value="{{regionName}}"
+      readonly
+      bind:tap="showPicker"
     />
     <van-field
       data-name="address"
@@ -31,17 +33,26 @@
     <van-cell title="设为默认地址">
       <van-switch
         data-name="is_default"
-        checked="{{addressData['is_default']}}"
+        size="26px"
+        checked="{{addressData['is_default'] == 1 ? true : false}}"
         bind:change="onChange"
       />
     </van-cell>
-    <text class="delete">删除收货地址</text>
-    <van-button type="danger" round block>保存</van-button>
+    <text wx:if="{{addressData['itemid']}}" class="delete" bind:tap="delAddress">删除收货地址</text>
+    <view class="confirm-container">
+      <van-button type="danger" round block bind:click="confirmAddress">保存</van-button>
+    </view>
   </view>
 </view>
 
-<van-popup show="{{show}}" bind:close="onClose">
-  <view class="pircker-container">
-    <van-picker columns="{{columns}}" bind:change="onChange" />
+<van-popup show="{{show}}" position="bottom" custom-style="height:264px;width:100%">
+  <view class="picker-container">
+    <van-picker
+      show-toolbar
+      columns="{{region}}"
+      bind:change="pirckerChange"
+      bind:cancel="closePicker"
+      bind:confirm="pirckerConfirm"
+    />
   </view>
 </van-popup>

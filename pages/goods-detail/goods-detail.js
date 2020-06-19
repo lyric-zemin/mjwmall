@@ -1,4 +1,4 @@
-import { getGoodsDetail, getGoodsAttrs, getGoodsPrice } from '../../api/goods-detail'
+import { getGoodsDetail, getGoodsAttrs, getGoodsPrice } from '../../api/goods'
 
 const REALITY_PRICE = 'realityPrice'  // 真实价格
 const SELECTED = 'selected'  // 已选属性字符串

@@ -1,11 +1,18 @@
 <van-overlay show="{{show}}" z-index="{{999}}">
   <view class="login-container">
     <view class="login-inner">
-      <view>为了更好的体验</view>
-      <view>需要您授权登录</view>
+      <view class="title">温馨提示</view>
+      <view class="content">为了您可以更好的体验本商城各项功能，该页面需要获取您的微信昵称等公开信息！！</view>
       <view class="btn-container">
-        <van-button type="default" bind:click="noLogin">暂不登录</van-button>
-        <van-button type="primary" open-type="getUserInfo" bind:getuserinfo="login">授权登录</van-button>
+        <van-button type="default" custom-class="cancel" plain hairline bind:click="noLogin">下次再说</van-button>
+        <van-button
+          type="default"
+          custom-class="confirm"
+          plain
+          hairline
+          open-type="getUserInfo"
+          bind:getuserinfo="login"
+        >微信授权</van-button>
       </view>
     </view>
   </view>

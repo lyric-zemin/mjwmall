@@ -4,5 +4,6 @@
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
     "van-button": "@vant/weapp/button/index"
-  }
+  },
+  "enablePullDownRefresh": true
 }

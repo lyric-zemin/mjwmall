@@ -7,7 +7,9 @@
 }
 
 .login-inner {
-  padding: 20rpx 60rpx;
+  width: 80%;
+  box-sizing: border-box;
+  padding: 32rpx 20rpx 0;
   background-color: #fff;
   border-radius: 20rpx;
   text-align: center;
@@ -15,6 +17,25 @@
   color: var(--color-text);
 }
 
+.title {
+  color: #000;
+  font-size: 42rpx;
+  margin-bottom: 30rpx;
+}
+
+.content {
+  font-size: 32rpx;
+  color: #a9a9a9;
+}
+
 .btn-container {
   margin-top: 20rpx;
+}
+
+.cancel {
+  color: #bd0416;
+}
+
+.confirm {
+  color: #07c160;
 }

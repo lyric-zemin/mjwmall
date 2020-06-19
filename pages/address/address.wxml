@@ -1,6 +1,6 @@
 <view class="container">
   <view class="address">
-    <view class="item" wx:for="{{addressList}}">
+    <view class="item" wx:for="{{addressList}}" wx:key="itemid">
       <view class="left">
         <van-icon name="location" color="#feb134" size="36rpx" />
         <view class="content">
@@ -14,7 +14,7 @@
           </view>
         </view>
       </view>
-      <view class="right">编辑</view>
+      <view class="right" data-itemid="{{item.itemid}}" bind:tap="editAddress">编辑</view>
     </view>
   </view>
 </view>

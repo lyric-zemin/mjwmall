@@ -12,7 +12,8 @@
     "pages/add-address/add-address"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#f8f8f8",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTextStyle": "black"
   },

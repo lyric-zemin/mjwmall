@@ -1,1 +1,3 @@
-/* pages/my/menu/index.wxss */
+van-icon {
+  margin-right: 5px;
+}

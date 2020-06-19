@@ -22,7 +22,7 @@ Component({
    */
   methods: {
     noLogin() {
-      wx.switchTab({
+      wx.reLaunch({
         url: '/pages/home/home'
       })
     },

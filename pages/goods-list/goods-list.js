@@ -1,4 +1,4 @@
-import { getGoodsList } from '../../api/goods-list'
+import { getGoodsList } from '../../api/goods'
 import { toastMess } from '../../utils/helper'
 
 const SORT = {

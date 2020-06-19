@@ -1,6 +1,14 @@
 <van-cell-group border="{{false}}">
-  <van-cell icon="location-o" title="地址管理" is-link url="/pages/address/address" />
-  <van-cell icon="location-o" title="发票管理" is-link />
-  <van-cell icon="location-o" title="关于我们" is-link />
-  <van-cell icon="location-o" title="客服热线" value="400-133-1213" is-link border="{{ false }}" />
+  <van-cell title="地址管理" is-link url="/pages/address/address">
+    <van-icon slot="icon" name="location" color="#f7b52c" />
+  </van-cell>
+  <van-cell title="发票管理" is-link>
+    <van-icon slot="icon" name="coupon" color="#0094e4" />
+  </van-cell>
+  <van-cell title="关于我们" is-link>
+    <van-icon slot="icon" name="friends" color="#d4237a" />
+  </van-cell>
+  <van-cell title="客服热线" value="400-133-1213" is-link border="{{false}}">
+    <van-icon slot="icon" name="phone" color="#ff6600" />
+  </van-cell>
 </van-cell-group>

@@ -8,3 +8,14 @@ page {
   padding: 20rpx;
   border-radius: 10rpx;
 }
+
+.delete {
+  display: inline-block;
+  margin-top: 20rpx;
+  padding: 10rpx;
+  color: var(--color-theme);
+}
+
+.confirm-container {
+  margin: 20rpx;
+}
