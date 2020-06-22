@@ -1,0 +1,72 @@
+page {
+  background-color: var(--color-background);
+}
+
+.pb60 {
+  padding-bottom: 60px;
+}
+
+.des {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--size-large);
+  color: var(--color-text);
+}
+
+.edit {
+  padding: 10rpx;
+}
+
+.history-container {
+  background-color: var(--color);
+  border-radius: 10rpx;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28rpx 0;
+}
+
+van-checkbox {
+  margin-right: 10rpx;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+}
+
+.img {
+  width: 148rpx;
+  height: 148rpx;
+  border-radius: 10rpx;
+  margin-right: 12rpx;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.name {
+  font-size: var(--size-large);
+  color: var(--color-text);
+  line-height: 1.3;
+  margin-bottom: 20rpx;
+}
+
+.price {
+  font-size: var(--size-large);
+  color: var(--color-theme);
+}
+
+.all {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}

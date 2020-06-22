@@ -3,6 +3,7 @@
     <van-tabs
       swipeable
       animated
+      sticky
       color="#cf0011"
       active="{{currentStatus}}"
       bind:change="changeStatus"
@@ -32,12 +33,33 @@
                 </view>
               </view>
             </view>
+            <!-- child Start -->
+            <view
+              class="middle"
+              wx:for="{{item.child}}"
+              wx:for-item="child"
+              wx:key="itemid"
+              data-itemid="{{child.itemid}}"
+            >
+              <image class="img" src="{{child.thumb}}" mode="aspectFit" />
+              <view class="detail">
+                <view class="left">
+                  <view class="name line2">{{child.title}}</view>
+                  <view class="type line2">{{child.attr}}</view>
+                </view>
+                <view class="right">
+                  <view class="price">￥{{child.price}}</view>
+                  <view class="num">X{{child.number}}</view>
+                </view>
+              </view>
+            </view>
+            <!-- child End -->
             <view class="bottom">
               <view class="money">
-                <text class="total">总价￥{{item.price*item.number}}，优惠￥{{item.discount}}</text>
+                <text class="total">总价￥{{item.goods_amount}}，优惠￥{{item.discount}}</text>
                 <text class="reality">实付款￥{{item.amount}}</text>
               </view>
-              <!-- 功能按钮区域 -->
+              <!-- 功能按钮区域Start -->
               <view class="button">
                 <van-button
                   wx:if="{{item.status==4}}"
@@ -95,7 +117,7 @@
                   bind:click
                 >删除订单</van-button>
               </view>
-              <!-- 功能按钮区域 -->
+              <!-- 功能按钮区域End -->
             </view>
           </view>
         </view>

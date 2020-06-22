@@ -1,5 +1,19 @@
 import http from './http'
 
+// 用户信息
+export function getUserInfo() {
+  return http({
+    url: '/member/member/getMemberInfo'
+  })
+}
+
+// 关于我们
+export function getAboutUs() {
+  return http({
+    url: '/common/Webpage/detail?itemid=1'
+  })
+}
+
 /**
  * 
  * 收藏类
@@ -87,5 +101,28 @@ export function setOrderStatus(data) {
     url: '/mall/order/setOrderStatus',
     method: 'POST',
     data
+  })
+}
+
+/**
+ * 
+ * 足迹类
+ */
+export function getHistory(page = 1) {
+  return http({
+    url: '/mall/mallview/getList',
+    data: {
+      page
+    }
+  })
+}
+
+export function delHistory(ids) {
+  return http({
+    url: '/mall/mallview/delete',
+    method: 'POST',
+    data: {
+      ids
+    }
   })
 }

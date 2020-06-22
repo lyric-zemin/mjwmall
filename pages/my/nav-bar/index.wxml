@@ -2,6 +2,6 @@
   <open-data type="userAvatarUrl" class="avatar" />
   <view class="info">
     <open-data type="userNickName" class="name" />
-    <!-- <view class="member">会员等级：</view> -->
+    <view class="member" wx:if="{{groupname}}">会员等级：{{groupname}}</view>
   </view>
 </view>

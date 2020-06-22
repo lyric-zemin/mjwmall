@@ -1,16 +1,16 @@
-<my-nav-bar />
+<my-nav-bar groupname="{{userInfo.groupname}}" />
 
 <view class="presentation">
   <view class="favorite" bind:tap="goFavorite">
-    <view class="num">8</view>
+    <view class="num">{{userInfo.collection_num}}</view>
     <view class="name">收藏夹</view>
   </view>
   <view class="attention">
-    <view class="num">8</view>
+    <view class="num">{{userInfo.view_num}}</view>
     <view class="name">我的关注</view>
   </view>
-  <view class="spoor">
-    <view class="num">118</view>
+  <view class="spoor" bind:tap="goHistory">
+    <view class="num">{{userInfo.follow_num}}</view>
     <view class="name">足迹</view>
   </view>
 </view>

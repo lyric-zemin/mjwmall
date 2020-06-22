@@ -9,9 +9,12 @@
     "pages/favorite/favorite",
     "pages/order/order",
     "pages/address/address",
-    "pages/add-address/add-address"
+    "pages/add-address/add-address",
+    "pages/history-record/history-record",
+    "pages/about-us/about-us"
   ],
   "window": {
+    "navigationBarTitleText": "lyric",
     "backgroundTextStyle": "dark",
     "backgroundColor": "#f8f8f8",
     "navigationBarBackgroundColor": "#fff",

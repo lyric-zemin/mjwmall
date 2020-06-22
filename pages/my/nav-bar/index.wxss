@@ -19,10 +19,15 @@
 .info {
   flex: 1;
   display: flex;
-  align-items: center;
   color: var(--color);
+  flex-direction: column;
 }
 
 .name {
   font-size: var(--size-large-x);
+}
+
+.member {
+  font-size: var(--size-normal);
+  margin-top: 10rpx;
 }

@@ -1,0 +1,29 @@
+<view class="container {{showDel ? 'pb60' : ''}}">
+  <view class="des">
+    <view class="detail">共{{total}}条，最多为您保存{{max}}条</view>
+    <view class="edit" bind:tap="toggleDel">编辑</view>
+  </view>
+  <view class="history-container">
+    <view class="item" wx:for="{{historyList}}" wx:key="vid">
+      <van-checkbox
+        wx:if="{{showDel}}"
+        data-id="{{item.vid}}"
+        value="{{checkList[item.vid]}}"
+        bind:change="toggleCheck"
+      />
+      <view class="content">
+        <image class="img" src="{{item.thumb}}" mode="aspectFit" />
+        <view class="detail">
+          <view class="name line2">{{item.title}}</view>
+          <view class="price">￥{{item.price}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="del-container" hidden="{{!showDel}}">
+  <van-submit-bar button-text="删除" bind:submit="delHistory">
+    <van-checkbox custom-class="all" value="{{checkAll}}" bind:change="toggleAll">全选</van-checkbox>
+  </van-submit-bar>
+</view>

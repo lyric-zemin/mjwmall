@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "我的足迹",
+  "usingComponents": {
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "van-submit-bar": "@vant/weapp/submit-bar/index"
+  }
+}

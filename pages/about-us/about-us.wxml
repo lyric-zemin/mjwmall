@@ -1,0 +1,3 @@
+<view class="container about">
+  <wxParse nodes="{{content}}" />
+</view>
