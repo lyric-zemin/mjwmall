@@ -1,3 +1,5 @@
+import { getShoppingGoods } from '../../api/shopping'
+import * as Tips from '../../utils/helper'
 
 Page({
 
@@ -14,10 +16,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-    
+    console.log(this)
   },
 
-  toggleSelection() {
+  toggleAllSelect() {
     this.setData({
       checkAll: !this.data.checkAll
     })
@@ -25,5 +27,11 @@ Page({
 
   settlement() {
 
-  }
+  },
+
+  loadMore() {
+
+  },
+
+
 })

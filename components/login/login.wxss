@@ -19,12 +19,12 @@
 
 .title {
   color: #000;
-  font-size: 42rpx;
-  margin-bottom: 30rpx;
+  font-size: 36rpx;
+  margin-bottom: 20rpx;
 }
 
 .content {
-  font-size: 32rpx;
+  font-size: 28rpx;
   color: #a9a9a9;
 }
 
@@ -33,9 +33,13 @@
 }
 
 .cancel {
-  color: #bd0416;
+  color: #bd0416 !important;
+  width: 50%;
+  border-color: transparent !important;
 }
 
 .confirm {
-  color: #07c160;
+  color: #07c160 !important;
+  width: 50%;
+  border-color: transparent !important;
 }

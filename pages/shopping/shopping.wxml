@@ -1,24 +1,15 @@
-<scroll-view scroll-y class="container">
+<view class="container">
   <view class="shopping-wrap">
-    <shopping-item />
-    <shopping-item />
-    <shopping-item />
-    <shopping-item />
-    <shopping-item />
-    <shopping-item />
-    <shopping-item />
-    <shopping-item />
-    <shopping-item />
-    <shopping-item />
+    <shopping-item wx:for="{{5}}" wx:key="index" class="item-1" />
   </view>
-</scroll-view>
+</view>
 
 <van-submit-bar
   price="{{totalPrice}}"
   button-text="{{checkQuantity ? '结算（' + checkQuantity + '）' : '未选择'}}"
   bind:submit="settlement"
 >
-  <van-checkbox value="{{checkAll}}" checked-color="#cf0011" bind:change="toggleSelection">全选</van-checkbox>
+  <van-checkbox value="{{checkAll}}" checked-color="#cf0011" bind:change="toggleAllSelect">全选</van-checkbox>
 </van-submit-bar>
 
 <login />

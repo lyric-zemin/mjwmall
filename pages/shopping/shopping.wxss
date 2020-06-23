@@ -3,16 +3,9 @@ page {
 }
 
 .container {
-  position: fixed;
-  top: 10rpx;
-  left: 10rpx;
-  right: 10rpx;
-  bottom: 110rpx;
+  margin: 10rpx 10rpx 110rpx;
   background-color: var(--color);
   border-radius: 10rpx;
-  overflow: hidden;
-  /* box-sizing: border-box; */
-  width: auto;
 }
 
 .shopping-wrap {

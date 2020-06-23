@@ -35,7 +35,7 @@ Page({
   },
 
   getData() {
-    return getFavorite().then(res => {
+    return getFavorite(this.data.activeItem).then(res => {
       return res.data.list
     })
   },

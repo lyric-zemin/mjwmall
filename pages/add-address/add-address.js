@@ -1,5 +1,5 @@
 import { addAddress, getRegion, getEditAddress, delAddress } from '../../api/my'
-import { toastMess } from '../../utils/helper'
+import { toastMess, loading, unLoading } from '../../utils/helper'
 
 const addressAttribute = ['truename', 'mobile', 'regionId', 'address', 'is_default']
 const addressName = { truename: '联系人', mobile: '手机号', regionId: '省份', address: '地址' }
@@ -41,6 +41,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
+    loading()
     const { itemid } = options
     let pid, cid, did, pidIndex, cidIndex, didIndex
 
@@ -95,6 +96,7 @@ Page({
         region: this.data.region
       })
     }, 50)
+    unLoading()
   },
 
   onChange(e) {

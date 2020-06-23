@@ -40,3 +40,21 @@ export function getGoodsPrice(itemid, attr) {
     }
   })
 }
+
+export function toggleCollection(itemid) {
+  return http({
+    url: '/mall/SortController/getStore',
+    method: 'POST',
+    data: {
+      itemid
+    }
+  })
+}
+
+export function addCart(data) {
+  return http({
+    url: '/cart/Cart/addCart/',
+    method: 'POST',
+    data
+  })
+}

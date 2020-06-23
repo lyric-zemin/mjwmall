@@ -1,9 +1,8 @@
-import { getGoodsDetail, getGoodsAttrs, getGoodsPrice } from '../../api/goods'
+import { getGoodsDetail, getGoodsAttrs, getGoodsPrice, toggleCollection, addCart } from '../../api/goods'
+import { toastMess, loading, unLoading, toastFail } from '../../utils/helper'
 
-const REALITY_PRICE = 'realityPrice'  // 真实价格
 const SELECTED = 'selected'  // 已选属性字符串
-
-// const App = getApp()
+const REALITY_PRICE = 'realityPrice'  // 真实价格
 
 Page({
 
@@ -11,8 +10,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goodsDetail: {},
     show: false,
+    goodsDetail: {},
     attrs: [],
     checkAttr: {},
     num: 1,
@@ -24,9 +23,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    loading()
     const { itemid } = options
     this.getDetail(itemid).then(() => {
       this.getAttrs()
+      unLoading()
     })
   },
 
@@ -82,6 +83,7 @@ Page({
         })
         return
       }
+
       attrs.forEach((item, index) => {
         this.data.checkAttr[index] = item.char[0]
       })
@@ -110,5 +112,46 @@ Page({
     this.setData({
       [SELECTED]: selected
     })
+  },
+
+  /**
+   * 切换收藏状态
+   */
+  toggleCollection() {
+    toggleCollection(this.data.goodsDetail.itemid).then(res => {
+      if (res.code === 200) {
+        if (this.data.goodsDetail.flag === 0) {
+          this.data.goodsDetail.flag = 1
+          toastMess('收藏成功')
+        } else {
+          this.data.goodsDetail.flag = 0
+          toastMess('取消收藏成功')
+        }
+        this.setData({
+          goodsDetail: this.data.goodsDetail
+        })
+      }
+    })
+  },
+
+  /**
+   * 加入购物车
+   */
+  addCart() {
+    if (!this.data.show) {
+      this.open()
+    } else {
+      const { goodsDetail: { itemid, price }, num, realityPrice } = this.data
+      loading('正在加入购物车...')
+      addCart({ itemid, num, attr: this.data.checkAttr }).then(res => {
+        console.log('加入购物车返回信息', res)
+        if (res.code === 200) {
+          toastMess('加入成功')
+          this.close()
+        } else {
+          toastFail()
+        }
+      })
+    }
   }
 })

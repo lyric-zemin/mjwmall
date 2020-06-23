@@ -1,10 +1,12 @@
-// pages/shopping/components/item/index.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-
+    num: {
+      type: Number,
+      value: 1
+    }
   },
 
   /**
@@ -29,6 +31,10 @@ Component({
       this.setData({
         select: !this.data.select
       })
+    },
+
+    changeNum({ detail }) {
+      console.log(detail)
     }
   }
 })

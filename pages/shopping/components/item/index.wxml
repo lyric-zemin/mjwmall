@@ -15,13 +15,18 @@
           <view class="price">¥530000.00</view>
           <view class="btn">
             <van-icon name="weapp-nav" bind:tap="toggleBtn" />
-            <van-transition custom-class="btn-inner" name="fade-right" duration="100" show="{{showBtn}}">
+            <van-transition
+              custom-class="btn-inner"
+              name="fade-right"
+              duration="100"
+              show="{{showBtn}}"
+            >
               <van-tag plain round>移入收藏夹</van-tag>
               <van-tag plain round>删除</van-tag>
             </van-transition>
           </view>
         </view>
-        <van-stepper value="{{ 1 }}" bind:change="onChange" />
+        <van-stepper value="{{num}}" bind:change="changeNum" />
       </view>
     </view>
   </view>

@@ -1,8 +1,25 @@
+import { FAILURE_MESS } from '../config'
+
 export function toastMess(title) {
   wx.showToast({
     title,
     icon: 'none',
     duration: 1500
+  })
+}
+
+export function toastSuccess(title = '提交成功') {
+  wx.showToast({
+    title,
+    duration: 1000
+  })
+}
+
+export function toastFail(title = FAILURE_MESS) {
+  wx.showToast({
+    title,
+    icon: 'none',
+    duration: 1000
   })
 }
 

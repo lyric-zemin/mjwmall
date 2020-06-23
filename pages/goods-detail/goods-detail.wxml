@@ -86,9 +86,12 @@
 
 <van-goods-action>
   <van-goods-action-icon icon="chat-o" text="客服" />
-  <van-goods-action-icon icon="shop-o" text="店铺" />
-  <van-goods-action-icon icon="star-o" text="收藏" />
-  <van-goods-action-button text="加入购物车" type="warning" />
+  <van-goods-action-icon text="收藏" bind:click="toggleCollection">
+    <van-icon slot="icon" wx:if="{{goodsDetail.flag === 1}}" name="star" size="20px" color="#fc9b39" custom-style="margin-bottom: 4px" />
+    <van-icon slot="icon" wx:else name="star-o" size="20px" custom-style="margin-bottom: 4px" />
+  </van-goods-action-icon>
+  <van-goods-action-icon icon="cart-o" text="购物车" url="/pages/shopping/shopping" link-type="switchTab" />
+  <van-goods-action-button text="加入购物车" type="warning" bind:click="addCart" />
   <van-goods-action-button text="立即购买" />
 </van-goods-action>
 
