@@ -58,8 +58,8 @@ Page({
   },
 
   selectTag(e) {
-    const { attr, index } = e.target.dataset
-    this.data.checkAttr[index] = attr
+    const { attr, index, attrindex } = e.target.dataset
+    this.data.checkAttr[index] = { text: attr, index: attrindex }
     this.setData({
       checkAttr: this.data.checkAttr
     })
@@ -85,7 +85,7 @@ Page({
       }
 
       attrs.forEach((item, index) => {
-        this.data.checkAttr[index] = item.char[0]
+        this.data.checkAttr[index] = { text: item.char[0], index: 0 }
       })
       this.setData({
         attrs,
@@ -108,9 +108,12 @@ Page({
    * 设置已选属性
    */
   setSelected() {
-    let selected = Object.values(this.data.checkAttr).join('、')
+    let selected = ''
+    Object.values(this.data.checkAttr).forEach(item => {
+      selected += item.text + '、'
+    })
     this.setData({
-      [SELECTED]: selected
+      [SELECTED]: selected.slice(0, -1)
     })
   },
 
@@ -141,9 +144,13 @@ Page({
     if (!this.data.show) {
       this.open()
     } else {
-      const { goodsDetail: { itemid, price }, num, realityPrice } = this.data
       loading('正在加入购物车...')
-      addCart({ itemid, num, attr: this.data.checkAttr }).then(res => {
+      const { goodsDetail: { itemid, price }, num, realityPrice } = this.data
+      let attr = ''
+      Object.values(this.data.checkAttr).forEach(item => {
+        attr += item.index + '_'
+      })
+      addCart({ itemid, num, attr: attr.slice(0, -1) }).then(res => {
         console.log('加入购物车返回信息', res)
         if (res.code === 200) {
           toastMess('加入成功')

@@ -1,12 +1,45 @@
 <view class="container">
-  <view class="shopping-wrap">
-    <shopping-item wx:for="{{5}}" wx:key="index" class="item-1" />
+  <view class="shopping-wrap" wx:if="{{shoppingList.length}}">
+    <view
+      class="company-container"
+      wx:for="{{shoppingList}}"
+      wx:key="index"
+      wx:for-item="companyGoods"
+      wx:for-index="companyIndex"
+      wx:if="{{companyGoods.length}}"
+    >
+      <view class="head">
+        <van-checkbox
+          value="{{checkCompanyList[companyIndex]}}"
+          icon-size="18px"
+          checked-color="#cf0011"
+          data-index="{{companyIndex}}"
+          bind:change="toggleCompanySelect"
+        />
+        <view class="name">{{companyGoods[0].company}}</view>
+      </view>
+      <view class="body">
+        <shopping-item
+          wx:for="{{companyGoods}}"
+          wx:key="key_no"
+          class="{{'item'+ companyIndex}}"
+          item="{{item}}"
+          data-companyindex="{{companyIndex}}"
+          data-index="{{index}}"
+          bind:change="toggleSelect"
+          bind:delete="delItem"
+          bind:count="numChange"
+        />
+      </view>
+    </view>
   </view>
+  <v-empty wx:else />
 </view>
 
 <van-submit-bar
+  wx:if="{{shoppingList.length}}"
   price="{{totalPrice}}"
-  button-text="{{checkQuantity ? '结算（' + checkQuantity + '）' : '未选择'}}"
+  button-text="{{checkQuantity != 0 ? '结算（' + checkQuantity + '）' : '未选择'}}"
   bind:submit="settlement"
 >
   <van-checkbox value="{{checkAll}}" checked-color="#cf0011" bind:change="toggleAllSelect">全选</van-checkbox>

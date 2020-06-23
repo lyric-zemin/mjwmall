@@ -2,6 +2,16 @@ import http from './http'
 
 export function getShoppingGoods() {
   return http({
-    url: ''
+    url: '/cart/cart/getCartList'
+  })
+}
+
+export function delShoppingGoods(key_no) {
+  return http({
+    url: '/cart/Cart/deleteCart/',
+    method: 'POST',
+    data: {
+      key_no
+    }
   })
 }

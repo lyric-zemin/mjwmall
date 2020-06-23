@@ -18,7 +18,9 @@
 }
 
 .img {
-  width: 100%;
+  width: 146rpx;
+  height: 146rpx;
+  border-radius: 10rpx;
 }
 
 .des-wrap {
@@ -34,6 +36,7 @@
   font-size: var(--size-large);
   color: var(--color-text);
   margin-bottom: 12rpx;
+  font-weight: bold;
 }
 
 .type {

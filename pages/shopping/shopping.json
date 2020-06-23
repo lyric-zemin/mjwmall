@@ -3,6 +3,7 @@
   "usingComponents": {
     "van-submit-bar": "@vant/weapp/submit-bar/index",
     "van-checkbox": "@vant/weapp/checkbox/index",
-    "shopping-item": "/pages/shopping/components/item/index"
+    "shopping-item": "/pages/shopping/item/index",
+    "v-empty": "/components/empty/empty"
   }
 }

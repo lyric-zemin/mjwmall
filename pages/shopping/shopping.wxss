@@ -4,10 +4,24 @@ page {
 
 .container {
   margin: 10rpx 10rpx 110rpx;
-  background-color: var(--color);
-  border-radius: 10rpx;
+  padding: 0;
 }
 
-.shopping-wrap {
+.company-container {
   padding: 10rpx;
+  background-color: var(--color);
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.name {
+  margin-left: 18rpx;
+  font-size: var(--size-normal);
+  color: var(--color-text);
 }
