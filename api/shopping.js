@@ -15,3 +15,14 @@ export function delShoppingGoods(key_no) {
     }
   })
 }
+
+export function changeShoppingGoodsNum(key_no, num) {
+  return http({
+    url: '/cart/Cart/deleteShop',
+    method: 'POST',
+    data: {
+      key_no,
+      num
+    }
+  })
+}

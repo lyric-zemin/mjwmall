@@ -1,7 +1,7 @@
-import { getShoppingGoods, delShoppingGoods } from '../../api/shopping'
+import { getShoppingGoods, delShoppingGoods, changeShoppingGoodsNum } from '../../api/shopping'
 import * as Tips from '../../utils/helper'
 
-let obj = {}, allShoppingList = [], checkGoodsList = []
+let allShoppingList = [], checkGoodsList = []
 
 Page({
 
@@ -23,21 +23,10 @@ Page({
   onLoad() {
     Tips.loading()
     this.getData()
-    // 监听checkList变化
-    Object.defineProperty(this.data, 'checkList', {
-      get: function() {
-        return obj
-      },
-      set: (val) => {
-        obj = val
-        this.Observe(val)
-      }
-    })
   },
 
   onShow() {
-    Tips.loading()
-    this.getData()
+    this.onLoad()
   },
 
   getData() {
@@ -45,10 +34,7 @@ Page({
       this.setData({
         shoppingList: res.data.carts
       })
-      allShoppingList = []
-      for (let i = 0; i < this.data.shoppingList.length; i++) {
-        allShoppingList = allShoppingList.concat(this.data.shoppingList[i])
-      }
+      this.updataAllShoppingList()
       Tips.unLoading()
     })
   },
@@ -61,15 +47,13 @@ Page({
     } else {
       delete this.data.checkList[itemid]
     }
-    this.setData({
-      checkList: this.data.checkList
-    })
+    this.Observe()
   },
 
   // 公司切换选择
   toggleCompanySelect(e) {
     const { detail } = e
-    const { index } = e.currentTarget.dataset
+    const { index, key } = e.currentTarget.dataset
 
     if (detail) {
       this.data.shoppingList[index].forEach(item => {
@@ -80,12 +64,11 @@ Page({
         delete this.data.checkList[item.key_no]
       })
     }
-    this.data.checkCompanyList[index] = detail
+    this.data.checkCompanyList[key] = detail
     this.setComponentSelect(detail, index)
     this.setData({
-      checkCompanyList: this.data.checkCompanyList,
-      checkList: this.data.checkList
-    })
+      checkCompanyList: this.data.checkCompanyList
+    }, this.Observe)
   },
 
   // 全选切换选择
@@ -101,9 +84,8 @@ Page({
     }
     this.setComponentSelect(detail)
     this.setData({
-      checkAll: detail,
-      checkList: this.data.checkList
-    })
+      checkAll: detail
+    }, this.Observe)
   },
 
   // 操作子组件切换
@@ -119,19 +101,27 @@ Page({
     }
   },
 
+  // 删除购物车产品
   delItem(e) {
     const { companyindex, index } = e.currentTarget.dataset
     const { itemid } = e.detail
     delShoppingGoods(itemid).then(res => {
       if (res.code === 200) {
+        // 如果是选中的也要删除
         if (this.data.checkList[itemid]) {
           delete this.data.checkList[itemid]
         }
-        this.data.shoppingList[companyindex].splice(index, 1)
+        // 公司产品长度为一的直接删除这个数组
+        if (this.data.shoppingList[companyindex].length === 1) {
+          delete this.data.checkCompanyList[this.data.shoppingList[companyindex][0].username]
+          this.data.shoppingList.splice(companyindex, 1)
+        } else {
+          this.data.shoppingList[companyindex].splice(index, 1)
+        }
+        this.updataAllShoppingList()
         this.setData({
-          shoppingList: this.data.shoppingList,
-          checkList: this.data.checkList
-        })
+          shoppingList: this.data.shoppingList
+        }, this.Observe)
         Tips.toastMess(`删除成功`)
       } else {
         Tips.toastFail()
@@ -139,23 +129,33 @@ Page({
     })
   },
 
+  // 修改商品数量
   numChange(e) {
     const { companyindex, index } = e.currentTarget.dataset
     const { itemid, num } = e.detail
-    this.data.shoppingList[companyindex][index].goods_number = num
-    this.setData({
-      shoppingList: this.data.shoppingList
+    changeShoppingGoodsNum(itemid, num).then(res => {
+      if (res.code === 200) {
+        this.setData({
+          [`shoppingList[${companyindex}][${index}].goods_number`]: num
+        }, () => {
+          if (this.data.checkList[itemid]) {
+            this.Observe()
+          }
+        })
+        // Tips.toastMess('修改成功')
+      } else {
+        Tips.toastFail()
+      }
     })
-    if (this.data.checkList[itemid]) {
-      this.Observe(this.data.checkList)
-    }
   },
 
+  // 结算
   settlement() {
 
   },
 
-  Observe(newVal) {
+  Observe() {
+    const newVal = this.data.checkList
     // 生成选中的产品列表
     checkGoodsList = []
     for (let d in newVal) {
@@ -178,7 +178,7 @@ Page({
     const checkLen = Object.keys(newVal).length
 
     // 响应是否全选
-    if (allShoppingList.length === checkLen) {
+    if (checkLen !== 0 && allShoppingList.length === checkLen) {
       this.data.checkAll = true
     } else {
       this.data.checkAll = false
@@ -196,23 +196,24 @@ Page({
       })
 
       if (isAll) {
-        this.data.checkCompanyList[index] = true
+        this.data.checkCompanyList[ary[0].username] = true
       } else {
-        this.data.checkCompanyList[index] = false
+        this.data.checkCompanyList[ary[0].username] = false
       }
     })
-    console.log(totalPrice)
+
     this.setData({
       checkQuantity: checkLen,
-      totalPrice: totalPrice * 100
-    })
-
-    this.setData({
-      checkAll: this.data.checkAll
-    })
-
-    this.setData({
+      totalPrice: totalPrice * 100,
+      checkAll: this.data.checkAll,
       checkCompanyList: this.data.checkCompanyList
     })
+  },
+
+  updataAllShoppingList() {
+    allShoppingList = []
+    for (let i = 0; i < this.data.shoppingList.length; i++) {
+      allShoppingList = allShoppingList.concat(this.data.shoppingList[i])
+    }
   }
 })

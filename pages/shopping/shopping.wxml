@@ -10,10 +10,11 @@
     >
       <view class="head">
         <van-checkbox
-          value="{{checkCompanyList[companyIndex]}}"
+          value="{{checkCompanyList[companyGoods[0].username]}}"
           icon-size="18px"
           checked-color="#cf0011"
           data-index="{{companyIndex}}"
+          data-key="{{companyGoods[0].username}}"
           bind:change="toggleCompanySelect"
         />
         <view class="name">{{companyGoods[0].company}}</view>

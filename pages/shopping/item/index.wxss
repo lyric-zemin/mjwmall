@@ -1,7 +1,6 @@
 .shopping-item {
   display: flex;
   align-items: center;
-  margin-bottom: 40rpx;
 }
 
 .shopping-content {
