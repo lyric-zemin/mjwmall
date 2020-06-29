@@ -6,13 +6,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    addressList: []
+    addressList: [],
+    isChoose: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
+  onLoad(option) {
+    if (option.choose == 1) {
+      this.data.isChoose = true
+    }
     this.getAddress()
   },
 
@@ -39,5 +43,15 @@ Page({
     wx.navigateTo({
       url: `/pages/add-address/add-address?itemid=${itemid}`
     })
+  },
+
+  chooseAddress(e) {
+    if (!this.data.isChoose) {
+      return
+    }
+    const { index } = e.currentTarget.dataset
+    const eventChannel = this.getOpenerEventChannel()
+    eventChannel.emit('acceptDataFromOpenedPage', this.data.addressList[index])
+    wx.navigateBack()
   }
 })

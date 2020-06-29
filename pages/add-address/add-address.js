@@ -34,7 +34,8 @@ Page({
       }
     ],
     show: false,
-    regionName: ''
+    regionName: '',
+    isChoose: false
   },
 
   /**
@@ -42,6 +43,9 @@ Page({
    */
   async onLoad(options) {
     loading()
+    if (options.choose == 1) {
+      this.data.isChoose = true
+    }
     const { itemid } = options
     let pid, cid, did, pidIndex, cidIndex, didIndex
 
@@ -180,6 +184,16 @@ Page({
     console.log('提交的地址信息', addressData)
     addAddress(addressData).then(res => {
       if (res.code === 200) {
+        if (this.data.isChoose) {
+          // const eventChannel = this.getOpenerEventChannel()
+          // // 去除省市区之间的空格
+          // const address = (this.data.regionName).replace(/\s/g, '') + addressData.address
+          // eventChannel.emit('acceptDataFromOpenedPage', { ...addressData, ...{ address } })
+          // wx.navigateBack()
+          wx.reLaunch({
+            url: '/pages/checkout/checkout'
+          })
+        }
         toastMess(`保存成功啦！`)
         this.setData({
           addressData: DEFAULT_ADDRESS,

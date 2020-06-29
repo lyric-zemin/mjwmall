@@ -51,6 +51,10 @@ Component({
 
     changeNum({ detail }) {
       this.triggerEvent('count', { itemid: this.data.item.key_no, num: detail })
+    },
+
+    addCollection() {
+      this.triggerEvent('collect', { itemid: this.data.item.key_no })
     }
   }
 })

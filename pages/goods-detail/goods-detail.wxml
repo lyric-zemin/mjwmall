@@ -105,7 +105,7 @@
     link-type="switchTab"
   />
   <van-goods-action-button text="加入购物车" type="warning" bind:click="addCart" />
-  <van-goods-action-button text="立即购买" />
+  <van-goods-action-button text="立即购买" bind:click="checkout" />
 </van-goods-action>
 
 <login />

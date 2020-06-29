@@ -1,0 +1,32 @@
+page {
+  background-color: var(--color-background);
+}
+
+.container {
+  margin-top: 10rpx;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.box {
+  background-color: var(--color);
+  margin-top: 10rpx;
+  padding: 10rpx;
+  border-radius: 10rpx;
+}
+
+.btn-container {
+  margin: 10rpx 0;
+  padding: 10rpx;
+  background-color: var(--color);
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

@@ -30,6 +30,7 @@
           bind:change="toggleSelect"
           bind:delete="delItem"
           bind:count="numChange"
+          bind:collect="addCollection"
         />
       </view>
     </view>
@@ -41,7 +42,7 @@
   wx:if="{{shoppingList.length}}"
   price="{{totalPrice}}"
   button-text="{{checkQuantity != 0 ? '结算（' + checkQuantity + '）' : '未选择'}}"
-  bind:submit="settlement"
+  bind:submit="checkout"
 >
   <van-checkbox value="{{checkAll}}" checked-color="#cf0011" bind:change="toggleAllSelect">全选</van-checkbox>
 </van-submit-bar>

@@ -1,6 +1,6 @@
 import { getClassify, getRecommend } from '../../api/classify'
-
 import { NO_DATA_CODE } from '../../config'
+import { loading, unLoading } from '../../utils/helper'
 
 const DEFAULT_CATID = '2829' // activeName使用的为全等比对，统一用字符串类型
 
@@ -21,6 +21,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    loading()
     const { catid } = options
     this.getClassify().then(() => {
       if (catid && catid !== this.data.activeName) {
@@ -31,6 +32,7 @@ Page({
         })
       }
       this.getRecommend()
+      unLoading()
     })
   },
 
@@ -65,11 +67,13 @@ Page({
   },
 
   clickItem(e) {
+    loading()
     const { catid } = e.target.dataset
     this.setData({
       currentCatid: catid
     })
     this.getRecommend()
+    unLoading()
   },
 
   clickGoodsItem(e) {

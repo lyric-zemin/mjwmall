@@ -5,8 +5,8 @@
       <image src="{{item.thumb}}" mode="aspectFill" class="img" />
     </view>
     <view class="des-wrap">
-      <view class="name">{{item.title}}</view>
-      <view class="type">{{item.goods_attr}}</view>
+      <view class="name lin2">{{item.title}}</view>
+      <view class="type lin2" wx:if="{{item.goods_attr}}">{{item.goods_attr}}</view>
       <view class="tag-wrap">
         <!-- <v-tag text="商家自营" /> -->
       </view>
@@ -21,7 +21,7 @@
               duration="100"
               show="{{showBtn}}"
             >
-              <van-tag plain round wx:if="{{item.flag === 0}}">移入收藏夹</van-tag>
+              <van-tag plain round wx:if="{{item.flag === 0}}" bind:tap="addCollection">移入收藏夹</van-tag>
               <van-tag plain round bind:tap="delItem">删除</van-tag>
             </van-transition>
           </view>

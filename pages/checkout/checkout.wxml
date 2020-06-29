@@ -1,0 +1,47 @@
+<view class="container">
+  <van-cell wx:if="{{address.itemid}}" is-link use-label-slot center bind:click="choiceAddress">
+    <van-icon slot="icon" name="location" size="22px" color="#feb332" />
+    <view class="title" slot="title">
+      金朵
+      <text>18120056636</text>
+    </view>
+    <view class="content" slot="label">
+      <v-tag wx:if="{{address.is_default === 1}}" text="默认地址" />
+      <text>江苏省昆山市登云路288号海创大厦Ｃ座1712室</text>
+    </view>
+  </van-cell>
+  <van-cell wx:else is-link center bind:click="addAddress">
+    <view slot="title" class="title">请添加您的收货地址</view>
+    <van-icon slot="icon" name="location" size="22px" color="#feb332" />
+  </van-cell>
+
+  <view class="goods-container">
+    <view class="box">
+      <view class="company">帅钢模架（苏州）有限公司</view>
+      <view class="item">
+        <image class="img" src mode="aspectFit" />
+        <view class="content">
+          <view class="name">台群精机T-V856B立式加工中心850三线轨加工中心心855加工中心精加工加工</view>
+          <view class="des">
+            <view class="type">型号：T-V856B</view>
+            <view class="count">
+              <view class="price">¥530000.00</view>
+              <view class="num">x1</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="describe">
+        <van-cell title="配送方式" value="普通方式" border="{{0}}" />
+        <van-cell title="配送时间" value="下单后三天内发货" border="{{0}}" />
+        <van-cell title="温馨提示" value="下单前请仔细核对收货地址哦~~" border="{{0}}" />
+        <van-cell title="开具发票" value="本次不开具发票" is-link border="{{0}}" />
+      </view>
+    </view>
+  </view>
+
+  <view class="btn-container">
+    共4件，合计：¥1060000.00
+    <van-button round color="#ff0000">提交订单</van-button>
+  </view>
+</view>

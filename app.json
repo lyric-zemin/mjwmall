@@ -11,7 +11,8 @@
     "pages/address/address",
     "pages/add-address/add-address",
     "pages/history-record/history-record",
-    "pages/about-us/about-us"
+    "pages/about-us/about-us",
+    "pages/checkout/checkout"
   ],
   "window": {
     "navigationBarTitleText": "lyric",

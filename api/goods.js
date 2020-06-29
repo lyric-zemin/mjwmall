@@ -58,3 +58,12 @@ export function addCart(data) {
     data
   })
 }
+
+// 立即购买
+export function checkout(data) {
+  return http({
+    url: '/mall/order/checkout',
+    method: 'POST',
+    data: { ...{ buynow: 1 }, ...data }
+  })
+}

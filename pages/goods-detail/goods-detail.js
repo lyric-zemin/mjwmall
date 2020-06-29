@@ -1,4 +1,4 @@
-import { getGoodsDetail, getGoodsAttrs, getGoodsPrice, toggleCollection, addCart } from '../../api/goods'
+import { getGoodsDetail, getGoodsAttrs, getGoodsPrice, toggleCollection, addCart, checkout } from '../../api/goods'
 import { toastMess, loading, unLoading, toastFail } from '../../utils/helper'
 
 const SELECTED = 'selected'  // 已选属性字符串
@@ -154,6 +154,33 @@ Page({
         console.log('加入购物车返回信息', res)
         if (res.code === 200) {
           toastMess('加入成功')
+          this.close()
+        } else {
+          toastFail()
+        }
+      })
+    }
+  },
+
+  /**
+   * 立即购买
+   */
+  checkout() {
+    if (!this.data.show) {
+      this.open()
+    } else {
+      loading('立即购买中...')
+      const { goodsDetail: { itemid }, num } = this.data
+      let attr = ''
+      Object.values(this.data.checkAttr).forEach(item => {
+        attr += item.index + '_'
+      })
+      checkout({ goods_id: itemid, num, attr: attr.slice(0, -1) }).then(res => {
+        if (res.code === 200) {
+          wx.navigateTo({
+            url: '/pages/checkout/checkout'
+          })
+          unLoading()
           this.close()
         } else {
           toastFail()

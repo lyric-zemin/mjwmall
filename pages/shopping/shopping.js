@@ -1,4 +1,4 @@
-import { getShoppingGoods, delShoppingGoods, changeShoppingGoodsNum } from '../../api/shopping'
+import { getShoppingGoods, delShoppingGoods, changeShoppingGoodsNum, checkout } from '../../api/shopping'
 import * as Tips from '../../utils/helper'
 
 let allShoppingList = [], checkGoodsList = []
@@ -149,11 +149,31 @@ Page({
     })
   },
 
-  // 结算
-  settlement() {
-
+  // 移入收藏夹
+  addCollection(e) {
+    const { itemid } = e.detail
+    console.log(itemid)
   },
 
+  // 结算
+  checkout() {
+    if (this.data.checkQuantity) {
+      Tips.loading('结算中...')
+      const cheoutStr = Object.keys(this.data.checkList).join(',')
+      checkout(cheoutStr).then(res => {
+        if (res.code === 200) {
+          Tips.unLoading()
+          wx.navigateTo({
+            url: '/pages/checkout/checkout'
+          })
+        } else {
+          Tips.toastFail()
+        }
+      })
+    }
+  },
+
+  // 监听选择的商品
   Observe() {
     const newVal = this.data.checkList
     // 生成选中的产品列表
