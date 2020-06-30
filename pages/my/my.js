@@ -16,10 +16,16 @@ Page({
     this.getUserInfo()
   },
 
+  onPullDownRefresh() {
+    this.onLoad()
+  },
+
   getUserInfo() {
     getUserInfo().then(res => {
       this.setData({
         userInfo: res.data
+      }, () => {
+        wx.stopPullDownRefresh()
       })
     })
   },

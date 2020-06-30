@@ -11,7 +11,7 @@
         value="{{checkList[item.vid]}}"
         bind:change="toggleCheck"
       />
-      <view class="content">
+      <view class="content" data-itemid="{{item.goods_id}}" bind:tap="goGoodsDetail">
         <image class="img" src="{{item.thumb}}" mode="aspectFit" />
         <view class="detail">
           <view class="name line2">{{item.title}}</view>

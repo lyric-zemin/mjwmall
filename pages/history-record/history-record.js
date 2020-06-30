@@ -1,5 +1,5 @@
 import { getHistory, delHistory } from '../../api/my'
-import { toastMess, loading, unLoading } from '../../utils/helper'
+import { toastMess, loading, unLoading, goGoodsDetail } from '../../utils/helper'
 
 const MAX_LEN = 30
 
@@ -32,7 +32,7 @@ Page({
   getData(loadMore) {
     loading()
     if (loadMore) {
-      if (this.data.historyList < total) {
+      if (this.data.historyList.length < this.data.total) {
         this.data.page++
       } else {
         toastMess('没有更多了')
@@ -129,5 +129,9 @@ Page({
         }
       })
     }
+  },
+
+  goGoodsDetail(e) {
+    goGoodsDetail(e)
   }
 })

@@ -33,3 +33,10 @@ export function loading(title = '加载中...') {
 export function unLoading() {
   wx.hideLoading()
 }
+
+export function goGoodsDetail(e) {
+  const { itemid } = e.currentTarget.dataset
+  wx.navigateTo({
+    url: `/pages/goods-detail/goods-detail?itemid=${itemid}`
+  })
+}

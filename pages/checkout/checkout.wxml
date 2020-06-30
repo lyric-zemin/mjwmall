@@ -19,7 +19,7 @@
     <view class="box">
       <view class="company">帅钢模架（苏州）有限公司</view>
       <view class="item">
-        <image class="img" src mode="aspectFit" />
+        <!-- <image class="img" src mode="aspectFit" /> -->
         <view class="content">
           <view class="name">台群精机T-V856B立式加工中心850三线轨加工中心心855加工中心精加工加工</view>
           <view class="des">

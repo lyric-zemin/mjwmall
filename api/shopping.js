@@ -31,7 +31,7 @@ export function checkout(key_no) {
   return http({
     url: '/mall/order/checkout',
     method: 'POST',
-    deta: {
+    data: {
       key_no
     }
   })
