@@ -185,11 +185,6 @@ Page({
     addAddress(addressData).then(res => {
       if (res.code === 200) {
         if (this.data.isChoose) {
-          // const eventChannel = this.getOpenerEventChannel()
-          // // 去除省市区之间的空格
-          // const address = (this.data.regionName).replace(/\s/g, '') + addressData.address
-          // eventChannel.emit('acceptDataFromOpenedPage', { ...addressData, ...{ address } })
-          // wx.navigateBack()
           wx.reLaunch({
             url: '/pages/checkout/checkout'
           })

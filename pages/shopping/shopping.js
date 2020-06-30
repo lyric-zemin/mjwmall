@@ -1,4 +1,4 @@
-import { getShoppingGoods, delShoppingGoods, changeShoppingGoodsNum, checkout } from '../../api/shopping'
+import { getShoppingGoods, delShoppingGoods, changeShoppingGoodsNum } from '../../api/shopping'
 import * as Tips from '../../utils/helper'
 
 let allShoppingList = [], checkGoodsList = []
@@ -31,9 +31,11 @@ Page({
 
   getData() {
     getShoppingGoods().then(res => {
-      this.setData({
-        shoppingList: res.data.carts
-      })
+      if (res.code === 200) {
+        this.setData({
+          shoppingList: res.data.carts
+        })
+      }
       this.updataAllShoppingList()
       Tips.unLoading()
     })
@@ -160,16 +162,10 @@ Page({
     if (this.data.checkQuantity) {
       Tips.loading('结算中...')
       const cheoutStr = Object.keys(this.data.checkList).join(',')
-      checkout(cheoutStr).then(res => {
-        if (res.code === 200) {
-          Tips.unLoading()
-          wx.navigateTo({
-            url: '/pages/checkout/checkout'
-          })
-        } else {
-          Tips.toastFail()
-        }
+      wx.navigateTo({
+        url: `/pages/checkout/checkout?key_no=${cheoutStr}&buynow=0`
       })
+      Tips.unLoading()
     }
   },
 

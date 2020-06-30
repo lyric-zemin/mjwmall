@@ -1,4 +1,4 @@
-import { getGoodsDetail, getGoodsAttrs, getGoodsPrice, toggleCollection, addCart, checkout } from '../../api/goods'
+import { getGoodsDetail, getGoodsAttrs, getGoodsPrice, toggleCollection, addCart } from '../../api/goods'
 import { toastMess, loading, unLoading, toastFail } from '../../utils/helper'
 
 const SELECTED = 'selected'  // 已选属性字符串
@@ -175,17 +175,11 @@ Page({
       Object.values(this.data.checkAttr).forEach(item => {
         attr += item.index + '_'
       })
-      checkout({ goods_id: itemid, num, attr: attr.slice(0, -1) }).then(res => {
-        if (res.code === 200) {
-          wx.navigateTo({
-            url: '/pages/checkout/checkout'
-          })
-          unLoading()
-          this.close()
-        } else {
-          toastFail()
-        }
+      wx.navigateTo({
+        url: `/pages/checkout/checkout?goods_id=${itemid}&num=${num}&attr=${attr.slice(0, -1)}&buynow=1`
       })
+      unLoading()
+      this.close()
     }
   }
 })

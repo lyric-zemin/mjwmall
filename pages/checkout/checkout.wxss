@@ -14,11 +14,70 @@ page {
   text-overflow: ellipsis;
 }
 
+.content v-tag {
+  margin-right: 6rpx;
+}
+
 .box {
   background-color: var(--color);
   margin-top: 10rpx;
   padding: 10rpx;
   border-radius: 10rpx;
+}
+
+.company {
+  font-size: var(--size-normal);
+  color: var(--color-text);
+}
+
+.item {
+  padding: 10rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.img {
+  width: 146rpx;
+  height: 146rpx;
+  border-radius: 10rpx;
+  margin-right: 10rpx;
+}
+
+.inner {
+  flex: 1;
+}
+
+.name {
+  font-size: var(--size-large);
+  color: var(--color-text);
+}
+
+.des {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.type {
+  margin-right: 20rpx;
+  flex: 1;
+  font-size: var(--size-normal);
+  color: var(--color-text);
+}
+
+.count {
+  text-align: right;
+  flex: 0 0 140rpx;
+}
+
+.price {
+  color: var(--color-theme-text);
+}
+
+.num {
+  font-size: var(--size-small);
+  margin-top: 6rpx;
 }
 
 .btn-container {
@@ -29,4 +88,23 @@ page {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+.l1 {
+  font-size: var(--size-normal);
+  color: var(--color-text);
+}
+
+.l2,
+.l3 {
+  font-size: var(--size-large);
+}
+
+.l3 {
+  color: var(--color-theme-text);
+  margin-right: 10rpx;
+}
+
+.low {
+  flex: 0 0 5em !important;
 }
