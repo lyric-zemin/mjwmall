@@ -17,7 +17,6 @@ Page({
     if (option.choose == 1) {
       this.data.isChoose = true
     }
-    this.getAddress()
   },
 
   onShow() {

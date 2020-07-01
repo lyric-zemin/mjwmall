@@ -21,12 +21,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-    Tips.loading()
-    this.getData()
+
   },
 
   onShow() {
-    this.onLoad()
+    Tips.loading()
+    this.getData()
   },
 
   getData() {

@@ -20,18 +20,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    loading()
     if (options && options.choose == 1) {
       this.data.isChoose = true
     }
-    this.getData()
   },
 
   onShow() {
-    this.onLoad()
+    this.getData()
   },
 
   getData() {
+    loading()
     getInvoice().then(res => {
       const ary = res.data
       ary.forEach(item => {

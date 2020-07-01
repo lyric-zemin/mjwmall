@@ -43,7 +43,7 @@
         <van-cell title="温馨提示" value="下单前请仔细核对收货地址" border="{{0}}" title-class="low" />
         <van-cell
           title="开具发票"
-          value="{{invoice[companyIndex] ? (invoice[companyIndex].title ? invoice[companyIndex].title : invoice[companyIndex].truename) : '本次不开具发票'}}"
+          value="{{invoice[companyIndex].itemid ? (invoice[companyIndex].title ? invoice[companyIndex].title : invoice[companyIndex].truename) : '本次不开具发票'}}"
           is-link
           border="{{0}}"
           data-company-index="{{companyIndex}}"

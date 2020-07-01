@@ -40,8 +40,17 @@ Page({
         checkoutList: carts,
         pieces: total.total_number,
         totalPrice: total.amount
-      }, () => unLoading())
+      }, () => {
+        this.initInvoice()
+        unLoading()
+      })
     })
+  },
+
+  initInvoice() {
+    for (let i = 0; i < this.data.checkoutList.length; i++) {
+      this.data.invoice.push({ itemid: 0 })
+    }
   },
 
   choiceAddress() {
@@ -66,7 +75,7 @@ Page({
       success: res => {
         if (res.cancel) {
           this.setData({
-            invoice: {}
+            [`invoice[${companyIndex}]`]: { itemid: 0 }
           })
         }
         if (res.confirm) {
