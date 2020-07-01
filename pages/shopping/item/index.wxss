@@ -34,12 +34,11 @@
   overflow: hidden;
   font-size: var(--size-large);
   color: var(--color-text);
-  margin-bottom: 12rpx;
-  font-weight: bold;
+  margin-bottom: 6rpx;
 }
 
 .type {
-  font-size: var(--size-large);
+  font-size: var(--size-small-x);
   color: var(--color-text);
   margin-bottom: 6rpx;
 }
@@ -53,7 +52,7 @@
 }
 
 .foot-wrap {
-  margin-top: 26rpx;
+  margin-top: 6rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;

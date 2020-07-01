@@ -8,6 +8,7 @@ Page({
    */
   data: {
     address: {},
+    invoice: [],
     checkoutList: [],
     pieces: 0,
     totalPrice: 0,
@@ -47,8 +48,38 @@ Page({
     wx.navigateTo({
       url: '/pages/address/address?choose=1',
       events: {
-        acceptDataFromOpenedPage: data => {
-          this.setAddress(data)
+        acceptDataFromOpenedPage: address => {
+          this.setData({
+            address
+          })
+        }
+      }
+    })
+  },
+
+  chooseInvoice(e) {
+    const { companyIndex } = e.currentTarget.dataset
+    wx.showModal({
+      title: '是否选择开具发票',
+      cancelText: '取消',
+      confirmText: '去选择',
+      success: res => {
+        if (res.cancel) {
+          this.setData({
+            invoice: {}
+          })
+        }
+        if (res.confirm) {
+          wx.navigateTo({
+            url: '/pages/invoice/invoice?choose=1',
+            events: {
+              acceptDataFromOpenedPage: invoice => {
+                this.setData({
+                  [`invoice[${companyIndex}]`]: invoice
+                })
+              }
+            }
+          })
         }
       }
     })
@@ -60,12 +91,6 @@ Page({
     })
   },
 
-  setAddress(address) {
-    this.setData({
-      address
-    })
-  },
-
   submitOrder() {
     const address_id = this.data.address.itemid
     if (!address_id) {
@@ -73,7 +98,13 @@ Page({
       return
     }
     const { buynow } = this.data.options
-    const invoice_id = '1,2'
+
+    let invoice_id = ''
+    // 多商家需要拼接字符串
+    this.data.invoice.forEach(item => {
+      invoice_id += item.itemid + ','
+    })
+    invoice_id = invoice_id.slice(0, -1)
 
     // 购物车购买
     if (buynow == 0) {

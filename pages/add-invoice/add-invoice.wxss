@@ -1,0 +1,41 @@
+page {
+  background-color: var(--color-background);
+}
+
+.type {
+  margin-top: 10rpx;
+  background-color: var(--color);
+  padding: 24rpx 12rpx;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  font-size: var(--size-normal);
+}
+
+.type van-checkbox {
+  margin-left: 10rpx;
+}
+
+.invoice-container {
+  margin-top: 16rpx;
+  padding: 10rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  background-color: var(--color);
+}
+
+.btn-container {
+  margin-top: 50rpx;
+  padding: 0 20rpx;
+}
+
+.person {
+  display: flex;
+  align-items: center;
+  font-size: var(--size-normal);
+}
+
+.person van-checkbox {
+  padding: 14rpx;
+  margin-right: 30rpx;
+}

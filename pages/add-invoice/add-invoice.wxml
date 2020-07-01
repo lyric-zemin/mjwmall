@@ -1,0 +1,102 @@
+<view class="container">
+  <view class="type">
+    <text>发票类型：</text>
+    <van-checkbox value="{{invoiceType == 1 }}" data-value="1" bind:change="changeType">增值税专用发票</van-checkbox>
+    <van-checkbox value="{{invoiceType == 2 }}" data-value="2" bind:change="changeType">普通发票</van-checkbox>
+  </view>
+
+  <!-- 增值税专用发票 -->
+  <view class="invoice-container" wx:if="{{invoiceType == 1}}">
+    <van-field
+      value="{{invoiceInfo['title']}}"
+      label="发票抬头"
+      placeholder="请输入准确的抬头名称"
+      required
+      data-name="title"
+      bind:change="onChange"
+    />
+    <van-field
+      value="{{invoiceInfo['identification']}}"
+      label="纳税人识别号"
+      placeholder="请输入纳税人识别号"
+      required
+      data-name="identification"
+      bind:change="onChange"
+    />
+    <van-field
+      value="{{invoiceInfo['register_address']}}"
+      label="注册地址"
+      placeholder="请填写单位注册地址"
+      required
+      data-name="register_address"
+      bind:change="onChange"
+    />
+    <van-field
+      value="{{invoiceInfo['register_phone']}}"
+      label="注册电话"
+      placeholder="请填写单位注册电话"
+      required
+      data-name="register_phone"
+      bind:change="onChange"
+    />
+    <van-field
+      value="{{invoiceInfo['bank']}}"
+      label="开户银行"
+      placeholder="请输入开户银行名称"
+      required
+      data-name="bank"
+      bind:change="onChange"
+    />
+    <van-field
+      value="{{invoiceInfo['bank_account']}}"
+      label="银行账号"
+      placeholder="请输入银行账号"
+      required
+      data-name="bank_account"
+      bind:change="onChange"
+    />
+  </view>
+
+  <!-- 普通发票 -->
+  <view class="invoice-container" wx:else>
+    <view class="person">
+      <van-checkbox value="{{personType == 1 }}" data-value="1" bind:change="changePerson">企业</van-checkbox>
+      <van-checkbox value="{{personType == 2 }}" data-value="2" bind:change="changePerson">个人</van-checkbox>
+    </view>
+
+    <!-- 企业 -->
+    <block wx:if="{{personType == 1}}">
+      <van-field
+        value="{{invoiceInfo['title']}}"
+        label="发票抬头"
+        placeholder="请输入准确的抬头名称"
+        required
+        data-name="title"
+        bind:change="onChange"
+      />
+      <van-field
+        value="{{invoiceInfo['identification']}}"
+        label="纳税人识别号"
+        placeholder="请输入纳税人识别号"
+        required
+        data-name="identification"
+        bind:change="onChange"
+      />
+    </block>
+
+    <!-- 个人 -->
+    <van-field
+      wx:else
+      value="{{invoiceInfo['truename']}}"
+      label="姓名"
+      placeholder="请输入姓名"
+      required
+      data-name="truename"
+      bind:change="onChange"
+    />
+  </view>
+
+  <view class="btn-container">
+    <van-button color="#ff0000" block round bind:click="saveInvoice">保存发票信息</van-button>
+  </view>
+</view>

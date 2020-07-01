@@ -12,7 +12,9 @@
     "pages/add-address/add-address",
     "pages/history-record/history-record",
     "pages/about-us/about-us",
-    "pages/checkout/checkout"
+    "pages/checkout/checkout",
+    "pages/invoice/invoice",
+    "pages/add-invoice/add-invoice"
   ],
   "window": {
     "navigationBarTitleText": "lyric",

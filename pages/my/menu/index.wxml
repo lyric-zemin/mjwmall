@@ -2,7 +2,7 @@
   <van-cell title="地址管理" is-link url="/pages/address/address">
     <van-icon slot="icon" name="location" color="#f7b52c" />
   </van-cell>
-  <van-cell title="发票管理" is-link>
+  <van-cell title="发票管理" is-link url="/pages/invoice/invoice">
     <van-icon slot="icon" name="coupon" color="#0094e4" />
   </van-cell>
   <van-cell title="关于我们" is-link url="/pages/about-us/about-us">

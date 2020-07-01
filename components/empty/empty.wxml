@@ -1,6 +1,6 @@
 <view class="empty" hidden="{{hidden}}">
-  <div class="container">
+  <view class="container">
     <image src="./empty.png" class="img" mode="widthFix" />
     <text class="text">{{text}}</text>
-  </div>
+  </view>
 </view>

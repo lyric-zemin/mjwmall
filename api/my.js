@@ -126,3 +126,39 @@ export function delHistory(ids) {
     }
   })
 }
+
+/**
+ * 发票类
+ */
+export function getInvoice(data) {
+  return http({
+    url: '/invoice/Invoice/getInvoice',
+    data
+  })
+}
+
+export function delInvoice(itemid) {
+  return http({
+    url: '/invoice/Invoice/deleteInvoice',
+    data: {
+      itemid
+    }
+  })
+}
+
+export function addInvoice(data) {
+  return http({
+    url: '/invoice/Invoice/addInvoice',
+    method: 'POST',
+    data
+  })
+}
+
+export function getEditInvoice(itemid) {
+  return http({
+    url: '/invoice/Invoice/singleInvoice',
+    data: {
+      itemid
+    }
+  })
+}

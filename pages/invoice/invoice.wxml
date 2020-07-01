@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="invoice">
+    <van-swipe-cell right-width="{{100}}" wx:for="{{invoiceList}}" wx:key="itemid">
+      <view class="item" data-index="{{index}}" bind:tap="chooseInvoice">
+        <view class="name">
+          <v-tag text="{{item.typeName}}" />
+          <text>{{item.title ? item.title : item.truename}}</text>
+        </view>
+        <view class="des" wx:if="{{item.identification}}">纳税人识别号：{{item.identification}}</view>
+      </view>
+      <view slot="right" class="box">
+        <view class="edit" data-id="{{item.itemid}}" bind:tap="editInvoice">编辑</view>
+        <view
+          class="delete"
+          data-id="{{item.itemid}}"
+          data-index="{{index}}"
+          bind:tap="delInvoice"
+        >删除</view>
+      </view>
+    </van-swipe-cell>
+  </view>
+</view>
+
+<view class="button-container">
+  <van-button round color="#ff0000" size="large" bind:click="addInvoice">新增发票</van-button>
+</view>

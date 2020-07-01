@@ -1,0 +1,65 @@
+page {
+  background-color: var(--color-background);
+}
+
+.invoice {
+  margin-top: 16rpx;
+  padding-bottom: 140rpx;
+}
+
+.item {
+  background-color: var(--color);
+  padding: 26rpx 12rpx;
+  border-radius: 10rpx;
+  margin-bottom: 16rpx;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  font-size: var(--size-large);
+  color: var(--color-text);
+}
+
+.name v-tag {
+  margin-right: 10rpx;
+}
+
+.des {
+  font-size: var(--size-large);
+  color: var(--color-text-i);
+  margin-top: 12rpx;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  width: 100px;
+  height: 100%;
+}
+
+.box > view {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: var(--size-large);
+}
+
+.edit {
+  background-color: #07c160;
+}
+
+.delete {
+  background-color: #ee0a24;
+}
+
+.button-container {
+  position: fixed;
+  bottom: 20rpx;
+  left: 0;
+  right: 0;
+  padding: 0 60rpx;
+}
