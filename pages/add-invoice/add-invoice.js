@@ -1,5 +1,6 @@
 import { addInvoice, getEditInvoice } from '../../api/my'
 import { loading, unLoading, toastFail, toastMess } from '../../utils/helper'
+import { validator1, validator2, validator3 } from './validator'
 
 /**
  * 1: 增值税发票
@@ -95,13 +96,9 @@ Page({
     }
     // 增值税发票
     if (this.data.invoiceType == 1) {
+      if (!validator1.checkData(invoiceInfo)) return
       for (let i of Object.keys(invoiceObj1)) {
-        if (!invoiceInfo[i]) {
-          toastMess(`${invoiceObj1[i]}不可为空`)
-          return
-        } else {
-          saveObj[i] = invoiceInfo[i]
-        }
+        saveObj[i] = invoiceInfo[i]
       }
 
       saveObj.invoice_type = 1
@@ -109,13 +106,9 @@ Page({
     }
     // 企业普通发票
     if (this.data.invoiceType == 2 && this.data.personType == 1) {
+      if (!validator2.checkData(invoiceInfo)) return
       for (let i of Object.keys(invoiceObj2)) {
-        if (!invoiceInfo[i]) {
-          toastMess(`${invoiceObj2[i]}不可为空`)
-          return
-        } else {
-          saveObj[i] = invoiceInfo[i]
-        }
+        saveObj[i] = invoiceInfo[i]
       }
 
       saveObj.invoice_type = 2
@@ -124,17 +117,13 @@ Page({
     }
     // 个人普通发票
     if (this.data.invoiceType == 2 && this.data.personType == 2) {
+      if (!validator3.checkData(invoiceInfo)) return
       for (let i of Object.keys(invoiceObj3)) {
-        if (!invoiceInfo[i]) {
-          toastMess(`${invoiceObj3[i]}不可为空`)
-          return
-        } else {
-          saveObj[i] = invoiceInfo[i]
-        }
+        saveObj[i] = invoiceInfo[i]
       }
 
       saveObj.invoice_type = 2
-      saveObj.itype = 1
+      saveObj.itype = 2
       this.addInvoice(saveObj)
     }
   },

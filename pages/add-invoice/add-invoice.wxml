@@ -86,7 +86,7 @@
 
     <!-- 个人 -->
     <van-field
-      wx:else
+      wx:if="{{personType == 2}}"
       value="{{invoiceInfo['truename']}}"
       label="姓名"
       placeholder="请输入姓名"
