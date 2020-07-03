@@ -25,15 +25,7 @@ Page({
   },
 
   getData(data) {
-    getDefaultAddress().then(res => {
-      if (res.code === 200) {
-        this.setData({
-          address: res.data
-        })
-      } else {
-        toastMess('获取默认地址失败了')
-      }
-    })
+    this.getDefaultAddress()
     getCheckoutGoods(data).then(res => {
       const { carts, total } = res.data
       this.setData({
@@ -44,6 +36,18 @@ Page({
         this.initInvoice()
         unLoading()
       })
+    })
+  },
+
+  getDefaultAddress() {
+    getDefaultAddress().then(res => {
+      if (res.code === 200) {
+        this.setData({
+          address: res.data
+        })
+      } else {
+        toastMess('获取默认地址失败了')
+      }
     })
   },
 
@@ -96,7 +100,12 @@ Page({
 
   addAddress() {
     wx.navigateTo({
-      url: '/pages/add-address/add-address?choose=1'
+      url: '/pages/add-address/add-address?choose=1',
+      events: {
+        acceptDataFromOpenedPage: () => {
+          this.getDefaultAddress()
+        }
+      }
     })
   },
 

@@ -126,6 +126,10 @@ Page({
       saveObj.itype = 2
       this.addInvoice(saveObj)
     }
+
+    if (!this.data.personType) {
+      toastMess(`请选择企业还是个人`)
+    }
   },
 
   addInvoice(data) {

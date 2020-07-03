@@ -184,12 +184,12 @@ Page({
     console.log('提交的地址信息', addressData)
     addAddress(addressData).then(res => {
       if (res.code === 200) {
-        if (this.data.isChoose) {
-          wx.reLaunch({
-            url: '/pages/checkout/checkout'
-          })
-        }
         toastMess(`保存成功啦！`)
+        if (this.data.isChoose) {
+          const eventChannel = this.getOpenerEventChannel()
+          eventChannel.emit('acceptDataFromOpenedPage')
+          wx.navigateBack()
+        }
         this.setData({
           addressData: DEFAULT_ADDRESS,
           regionName: ''
