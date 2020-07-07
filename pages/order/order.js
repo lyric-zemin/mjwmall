@@ -1,5 +1,5 @@
 import { getOrderList, setOrderStatus } from '../../api/my'
-import { toastMess } from '../../utils/helper'
+import { toastMess, loading, unLoading } from '../../utils/helper'
 
 const orderStatus = {
   all: {
@@ -64,8 +64,27 @@ Page({
    * 监听用户下拉动作
    */
   async onPullDownRefresh() {
+    this.data.orderStatus[this.data.currentStatus].page = 1
     await this.updateOrderList()
     wx.stopPullDownRefresh()
+  },
+
+  async onReachBottom() {
+    loading()
+    // 分页
+    let page = this.data.orderStatus[this.data.currentStatus].page || 1
+    const total = this.data.orderStatus[this.data.currentStatus].total
+    if (total && total > this.data.orderList[this.data.currentStatus].length) {
+      this.data.orderStatus[this.data.currentStatus].page = ++page
+    } else {
+      toastMess('没有更多了')
+      return
+    }
+    let ret = await this.getOrderList(page)
+    ret = this.data.orderList[this.data.currentStatus].concat(ret)
+    this.setData({
+      [`orderList.${this.data.currentStatus}`]: ret
+    }, () => unLoading())
   },
 
   changeStatus(e) {
@@ -88,10 +107,11 @@ Page({
     })
   },
 
-  getOrderList() {
+  getOrderList(page = 1) {
     const status = orderStatus[this.data.currentStatus].index
 
-    return getOrderList(status).then(res => {
+    return getOrderList(status, page).then(res => {
+      this.data.orderStatus[this.data.currentStatus].total = res.data.total
       return res.data.data
     })
   },

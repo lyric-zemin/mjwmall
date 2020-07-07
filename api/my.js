@@ -87,11 +87,12 @@ export function getRegion(pid) {
  * 
  * 订单类
  */
-export function getOrderList(status) {
+export function getOrderList(status, page) {
   return http({
     url: '/mall/order/getOrderList',
     data: {
-      status
+      status,
+      page
     }
   })
 }
