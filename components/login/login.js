@@ -1,5 +1,5 @@
 import login from '../../utils/auth'
-import { toastMess, loading, unLoading, toastFail } from '../../utils/helper'
+import { toastMess, loading, toastFail } from '../../utils/helper'
 import { mutations } from '../../utils/store'
 
 const App = getApp()
@@ -28,15 +28,33 @@ Component({
         url: '/pages/home/home'
       })
     },
-    async login({ detail }) {
+    login({ detail }) {
       loading('授权登录中...')
-      const loginStatus = await login(detail)
-      const currentRouter = '/' + getCurrentPages()[0].route
-      // this.close()
+      // 拒绝授权
+      if (detail.errMsg !== 'getUserInfo:ok') {
+        toastFail()
+        return
+      }
+
+      login(detail).then(res => {
+        mutations.setToken(res)
+        // 刷新页面
+        const currentRouter = '/' + getCurrentPages()[0].route
+        wx.reLaunch({
+          url: currentRouter
+        })
+      }).catch(() => {
+        toastFail()
+      })
     },
     close() {
       this.setData({
         show: false
+      })
+    },
+    open() {
+      this.setData({
+        show: true
       })
     }
   },
@@ -45,9 +63,7 @@ Component({
     attached() {
       const { token } = App.store
       if (!token) {
-        this.setData({
-          show: true
-        })
+        this.open()
       }
     }
   }

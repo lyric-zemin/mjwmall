@@ -1,6 +1,8 @@
 import http from '../api/http'
+import { mutations } from './store'
 
 const loginUrl = '/wechat/WechatMember/mpOauth'
+const checkUrl = '/BaseController/validateExpiresTime'
 
 export default function login({ iv, encryptedData }) {
   return new Promise((resolve, reject) => {
@@ -17,9 +19,11 @@ export default function login({ iv, encryptedData }) {
               encryptedData
             }
           }).then(res => {
-            console.log(res)
+            console.log('获取Token', res)
             if (res.code === 200) {
-
+              resolve(res.data.token)
+            } else {
+              reject(res)
             }
           })
         } else {
@@ -34,5 +38,24 @@ export default function login({ iv, encryptedData }) {
 }
 
 export function checkLogin() {
+  const Token = wx.getStorageSync('Token')
+  if (!Token) return
 
+  mutations.setToken(Token)
+  http({ url: checkUrl }).then(res => {
+    if (res.code !== 200) {
+      wx.getUserInfo({
+        success(info) {
+          login(info).then(res => {
+            mutations.setToken(res)
+          }).catch(() => {
+            mutations.setToken('')
+          })
+        },
+        fail() {
+          mutations.setToken('')
+        }
+      })
+    }
+  })
 }
