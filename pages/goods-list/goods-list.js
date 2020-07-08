@@ -55,10 +55,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    const { catid } = options
-    this.data.filters.catid = catid
+    const { catid, type } = options
+    this.data.filters.catid = catid || ''
     this.data.filters.sort = SORT[DEFAULT_SORT].char
-    this.data.filters.type = TYPE[DEFAULT_TYPE].char
+    this.data.filters.type = type || TYPE[DEFAULT_TYPE].char
 
     this.setData({
       filters: this.data.filters

@@ -1,28 +1,38 @@
 import http from '../api/http'
-import { mutations } from './store'
 
-export default function login() {
+const loginUrl = '/wechat/WechatMember/mpOauth'
+
+export default function login({ iv, encryptedData }) {
   return new Promise((resolve, reject) => {
     wx.login({
       timeout: 10000,
       success(res) {
         if (res.code) {
           http({
-            url: '',
+            url: loginUrl,
+            method: 'POST',
             data: {
-              code: res.code
+              code: res.code,
+              iv,
+              encryptedData
             }
           }).then(res => {
             console.log(res)
-            // mutations.setToken(res)
+            if (res.code === 200) {
+
+            }
           })
         } else {
-          reject(res)
+          reject(false)
         }
       },
       fail(err) {
-        reject(err)
+        reject(false)
       }
     })
   })
+}
+
+export function checkLogin() {
+
 }

@@ -27,9 +27,9 @@ Component({
       })
     },
     async login({ detail }) {
-      console.log(detail)
-      // login()
-      this.close()
+      const loginStatus = await login(detail)
+      const currentRouter = '/' + getCurrentPages()[0].route
+      // this.close()
     },
     close() {
       this.setData({

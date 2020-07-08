@@ -1,5 +1,5 @@
 export const state = {
-  token: 'lyric'
+  token: ''
 }
 
 export const mutations = {

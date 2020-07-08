@@ -1,6 +1,8 @@
 <view class="grid wrap-class">
   <view class="item" wx:for="{{grids}}" wx:key="img">
-    <image src="{{item.img}}" class="img" mode="widthFix" />
-    <view class="text">{{item.text}}</view>
+    <navigator url="{{item.url}}">
+      <image src="{{item.img}}" class="img" mode="widthFix" />
+      <view class="text">{{item.text}}</view>
+    </navigator>
   </view>
 </view>

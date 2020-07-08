@@ -15,11 +15,13 @@ Component({
     grids: [
       {
         img: './image/spot.svg',
-        text: '现货中心'
+        text: '现货中心',
+        url: '/pages/goods-list/goods-list?type=6'
       },
       {
         img: './image/product.svg',
-        text: '产品中心'
+        text: '产品中心',
+        url: '/pages/goods-list/goods-list'
       },
       {
         img: './image/enterprise.svg',
