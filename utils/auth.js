@@ -23,11 +23,11 @@ export default function login({ iv, encryptedData }) {
             }
           })
         } else {
-          reject(false)
+          reject(res)
         }
       },
       fail(err) {
-        reject(false)
+        reject(err)
       }
     })
   })

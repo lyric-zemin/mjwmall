@@ -1,4 +1,6 @@
 import login from '../../utils/auth'
+import { toastMess, loading, unLoading, toastFail } from '../../utils/helper'
+import { mutations } from '../../utils/store'
 
 const App = getApp()
 
@@ -27,6 +29,7 @@ Component({
       })
     },
     async login({ detail }) {
+      loading('授权登录中...')
       const loginStatus = await login(detail)
       const currentRouter = '/' + getCurrentPages()[0].route
       // this.close()
