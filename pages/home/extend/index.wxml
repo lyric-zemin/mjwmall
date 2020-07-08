@@ -1,6 +1,6 @@
 <view class="grid wrap-class">
   <view class="item" wx:for="{{grids}}" wx:key="img">
-    <navigator url="{{item.url}}">
+    <navigator url="{{item.url}}" hover-class="none">
       <image src="{{item.img}}" class="img" mode="widthFix" />
       <view class="text">{{item.text}}</view>
     </navigator>

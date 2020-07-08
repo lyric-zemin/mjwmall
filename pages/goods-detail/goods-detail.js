@@ -123,11 +123,11 @@ Page({
   toggleCollection() {
     toggleCollection(this.data.goodsDetail.itemid).then(res => {
       if (res.code === 200) {
-        if (this.data.goodsDetail.flag === 0) {
-          this.data.goodsDetail.flag = 1
+        if (this.data.goodsDetail.collection.flag === 0) {
+          this.data.goodsDetail.collection.flag = 1
           toastMess('收藏成功')
         } else {
-          this.data.goodsDetail.flag = 0
+          this.data.goodsDetail.collection.flag = 0
           toastMess('取消收藏成功')
         }
         this.setData({

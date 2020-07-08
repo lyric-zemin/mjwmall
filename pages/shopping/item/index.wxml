@@ -1,5 +1,10 @@
 <view class="shopping-item">
-  <van-checkbox value="{{select}}" checked-color="#cf0011" bind:change="toggleSelect" />
+  <van-checkbox
+    value="{{select}}"
+    icon-size="18px"
+    checked-color="#cf0011"
+    bind:change="toggleSelect"
+  />
   <view class="shopping-content">
     <view class="img-wrap">
       <image src="{{item.thumb}}" mode="aspectFill" class="img" />

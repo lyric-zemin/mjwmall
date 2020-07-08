@@ -4,7 +4,7 @@
 }
 
 .shopping-content {
-  margin-left: 10rpx;
+  margin-left: 18rpx;
   flex: 1;
   display: flex;
   align-items: center;
