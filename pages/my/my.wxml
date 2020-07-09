@@ -6,11 +6,11 @@
     <view class="name">收藏夹</view>
   </view>
   <view class="attention">
-    <view class="num">{{userInfo.view_num}}</view>
+    <view class="num">{{userInfo.follow_num}}</view>
     <view class="name">我的关注</view>
   </view>
   <view class="spoor" bind:tap="goHistory">
-    <view class="num">{{userInfo.follow_num}}</view>
+    <view class="num">{{userInfo.view_num}}</view>
     <view class="name">足迹</view>
   </view>
 </view>

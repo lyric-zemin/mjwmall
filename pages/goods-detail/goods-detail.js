@@ -43,9 +43,9 @@ Page({
   },
 
   open() {
-    if (!this.data.attrs.length) {
-      this.getAttrs()
-    }
+    // if (!this.data.attrs.length) {
+    //   this.getAttrs()
+    // }
     this.setData({
       show: true
     })
