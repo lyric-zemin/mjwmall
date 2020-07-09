@@ -97,6 +97,6 @@
   </view>
 
   <view class="btn-container">
-    <van-button color="#ff0000" block round bind:click="saveInvoice">保存发票信息</van-button>
+    <van-button color="#cf0011" block round bind:click="saveInvoice">保存发票信息</van-button>
   </view>
 </view>

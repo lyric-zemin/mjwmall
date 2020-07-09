@@ -8,7 +8,7 @@
   <van-cell title="关于我们" is-link url="/pages/about-us/about-us">
     <van-icon slot="icon" name="friends" color="#d4237a" />
   </van-cell>
-  <van-cell title="客服热线" value="400-133-1213" is-link border="{{false}}">
+  <van-cell title="客服热线" value="400-133-1213" is-link border="{{false}}" bind:click="callPhone">
     <van-icon slot="icon" name="phone" color="#ff6600" />
   </van-cell>
 </van-cell-group>

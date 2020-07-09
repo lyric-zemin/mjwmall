@@ -35,7 +35,7 @@
       </view>
     </view>
   </view>
-  <v-empty wx:else />
+  <v-empty text="购物车空空如也..." wx:else />
 </view>
 
 <van-submit-bar

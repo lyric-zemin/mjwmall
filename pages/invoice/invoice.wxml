@@ -22,5 +22,5 @@
 </view>
 
 <view class="button-container">
-  <van-button round color="#ff0000" size="large" bind:click="addInvoice">新增发票</van-button>
+  <van-button round color="#cf0011" size="large" bind:click="addInvoice">新增发票</van-button>
 </view>

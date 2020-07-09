@@ -1,4 +1,4 @@
-import { loading, unLoading } from '../../../utils/helper'
+import { goGoodsDetail } from '../../../utils/helper'
 
 Component({
   /**
@@ -55,6 +55,10 @@ Component({
 
     addCollection() {
       this.triggerEvent('collect', { itemid: this.data.item.key_no })
+    },
+
+    goGoodsDetail(e) {
+      goGoodsDetail(e)
     }
   }
 })

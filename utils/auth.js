@@ -43,6 +43,7 @@ export function checkLogin() {
 
   mutations.setToken(Token)
   http({ url: checkUrl }).then(res => {
+    // 无效token
     if (res.code !== 200) {
       wx.getUserInfo({
         success(info) {

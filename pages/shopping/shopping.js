@@ -37,6 +37,7 @@ Page({
         })
       }
       this.updataAllShoppingList()
+      this.Observe()
       Tips.unLoading()
     })
   },

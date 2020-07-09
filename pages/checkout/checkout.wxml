@@ -57,6 +57,6 @@
     <text class="l1">共{{pieces}}件，</text>
     <text class="l2">合计：</text>
     <text class="l3">¥{{totalPrice}}</text>
-    <van-button round color="#ff0000" bind:click="submitOrder">提交订单</van-button>
+    <van-button round color="#cf0011" bind:click="submitOrder">提交订单</van-button>
   </view>
 </view>
