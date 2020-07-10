@@ -123,20 +123,15 @@ Page({
   toggleCollection() {
     toggleCollection(this.data.goodsDetail.itemid).then(res => {
       if (res.code === 200) {
-        // 修复数据不规范的问题
-        if (this.data.goodsDetail.collection === null) {
-          this.data.goodsDetail.collection = {}
-          this.data.goodsDetail.collection.flag = 0
-        }
-        if (this.data.goodsDetail.collection.flag === 0) {
-          this.data.goodsDetail.collection.flag = 1
+        if (this.data.goodsDetail.flag === 0) {
+          this.data.goodsDetail.flag = 1
           toastMess('收藏成功')
         } else {
-          this.data.goodsDetail.collection.flag = 0
+          this.data.goodsDetail.flag = 0
           toastMess('取消收藏成功')
         }
         this.setData({
-          'goodsDetail.collection.flag': this.data.goodsDetail.collection.flag
+          'goodsDetail.flag': this.data.goodsDetail.flag
         })
       }
     })

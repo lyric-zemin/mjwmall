@@ -90,7 +90,7 @@
   <van-goods-action-icon text="收藏" bind:click="toggleCollection">
     <van-icon
       slot="icon"
-      wx:if="{{goodsDetail.collection.flag === 1}}"
+      wx:if="{{goodsDetail.flag === 1}}"
       name="star"
       size="20px"
       color="#fc9b39"
