@@ -1,5 +1,5 @@
 import { getFavorite, delFavorite } from '../../api/my'
-import { toastMess, loading, unLoading } from '../../utils/helper'
+import { toastMess, loading, unLoading, goGoodsDetail } from '../../utils/helper'
 
 const itemType = {
   all: {
@@ -68,5 +68,9 @@ Page({
         toastMess('失败了，再试试吧')
       }
     })
+  },
+
+  goGoodsDetail(e) {
+    goGoodsDetail(e)
   }
 })

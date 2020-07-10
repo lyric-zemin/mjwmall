@@ -123,6 +123,11 @@ Page({
   toggleCollection() {
     toggleCollection(this.data.goodsDetail.itemid).then(res => {
       if (res.code === 200) {
+        // 修复数据不规范的问题
+        if (this.data.goodsDetail.collection === null) {
+          this.data.goodsDetail.collection = {}
+          this.data.goodsDetail.collection.flag = 0
+        }
         if (this.data.goodsDetail.collection.flag === 0) {
           this.data.goodsDetail.collection.flag = 1
           toastMess('收藏成功')
@@ -131,7 +136,7 @@ Page({
           toastMess('取消收藏成功')
         }
         this.setData({
-          goodsDetail: this.data.goodsDetail
+          'goodsDetail.collection.flag': this.data.goodsDetail.collection.flag
         })
       }
     })

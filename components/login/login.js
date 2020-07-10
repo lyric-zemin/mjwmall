@@ -36,7 +36,7 @@ Component({
         return
       }
 
-      login(detail).then(res => {
+      login().then(res => {
         mutations.setToken(res)
         // 刷新页面
         const currentRouter = '/' + getCurrentPages()[0].route
