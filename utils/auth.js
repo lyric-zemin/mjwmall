@@ -100,10 +100,11 @@ export function checkLogin() {
   })
 }
 
-function reLogin() {
-  login().then(res => {
+export function reLogin(refresh = true) {
+  return login().then(res => {
     mutations.setToken(res)
     // 刷新页面
+    if (!refresh) return
     const currentRouter = '/' + getCurrentPages()[0].route
     wx.reLaunch({
       url: currentRouter

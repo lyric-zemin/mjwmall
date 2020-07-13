@@ -1,4 +1,4 @@
-import { getShoppingGoods, delShoppingGoods, changeShoppingGoodsNum } from '../../api/shopping'
+import { getShoppingGoods, delShoppingGoods, changeShoppingGoodsNum, addCollection } from '../../api/shopping'
 import * as Tips from '../../utils/helper'
 
 let allShoppingList = [], checkGoodsList = []
@@ -37,6 +37,7 @@ Page({
         })
       }
       this.updataAllShoppingList()
+      this.validatorCkeckList()
       this.Observe()
       Tips.unLoading()
     })
@@ -154,8 +155,15 @@ Page({
 
   // 移入收藏夹
   addCollection(e) {
+    const { companyindex, index } = e.currentTarget.dataset
     const { itemid } = e.detail
-    console.log(itemid)
+    addCollection(itemid).then(res => {
+      if (res.code === 200) {
+        this.setData({
+          [`shoppingList[${companyindex}][${index}].flag`]: 1
+        }, () => toastMess('收藏成功'))
+      }
+    })
   },
 
   // 结算
@@ -232,5 +240,15 @@ Page({
     for (let i = 0; i < this.data.shoppingList.length; i++) {
       allShoppingList = allShoppingList.concat(this.data.shoppingList[i])
     }
+  },
+
+  // 核验选择的产品是否还存在于购物车
+  validatorCkeckList() {
+    const { checkList } = this.data
+    Object.keys(checkList).forEach(item => {
+      if (!allShoppingList.find(i => i.key_no == item)) {
+        delete checkList[item]
+      }
+    })
   }
 })

@@ -54,7 +54,7 @@ Component({
     },
 
     addCollection() {
-      this.triggerEvent('collect', { itemid: this.data.item.key_no })
+      this.triggerEvent('collect', { itemid: this.data.item.itemid })
     },
 
     goGoodsDetail(e) {

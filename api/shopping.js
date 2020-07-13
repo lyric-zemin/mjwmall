@@ -26,3 +26,13 @@ export function changeShoppingGoodsNum(key_no, num) {
     }
   })
 }
+
+export function addCollection(itemid) {
+  return http({
+    url: '/cart/Cart/cartStore',
+    method: 'POST',
+    data: {
+      itemid
+    }
+  })
+}

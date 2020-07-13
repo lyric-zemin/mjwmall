@@ -20,15 +20,10 @@
           <view class="price">¥{{item.goods_price}}</view>
           <view class="btn">
             <van-icon name="weapp-nav" bind:tap="toggleBtn" />
-            <van-transition
-              custom-class="btn-inner"
-              name="fade-right"
-              duration="100"
-              show="{{showBtn}}"
-            >
+            <view class="btn-inner" hidden="{{!showBtn}}">
               <van-tag plain round wx:if="{{item.flag === 0}}" bind:tap="addCollection">移入收藏夹</van-tag>
               <van-tag plain round bind:tap="delItem">删除</van-tag>
-            </van-transition>
+            </view>
           </view>
         </view>
         <van-stepper value="{{item.goods_number}}" bind:change="changeNum" />
