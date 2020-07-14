@@ -9,7 +9,7 @@
   </view>
   <div class="foot-wrap">
     <view class="price">￥{{filter.priceFilter(item.price)}}万</view>
-    <view class="pay">{{item.payment}}人付款</view>
+    <view class="pay">{{item.sales}}人付款</view>
   </div>
 </view>
 

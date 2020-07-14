@@ -161,7 +161,9 @@ Page({
       if (res.code === 200) {
         this.setData({
           [`shoppingList[${companyindex}][${index}].flag`]: 1
-        }, () => toastMess('收藏成功'))
+        }, () => Tips.toastMess('收藏成功'))
+      } else {
+        Tips.toastFail()
       }
     })
   },
