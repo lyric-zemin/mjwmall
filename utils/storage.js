@@ -5,9 +5,14 @@ export function setStorage(key, val, maxLen = 10) {
   if (storage.length >= maxLen) {
     storage.pop()
   }
-  storage.unshift(val)
+  const index = storage.findIndex(i => i == val)
+  if (index > -1) {
+    storage.splice(index, 1)
+  }
 
+  storage.unshift(val)
   wx.setStorageSync(key, storage)
+  return storage
 }
 
 export function getStorage(key) {

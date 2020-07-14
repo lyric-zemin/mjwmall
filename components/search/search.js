@@ -31,7 +31,10 @@ Component({
       this.data.value = value
     },
     onClick(e) {
-      this.triggerEvent('search', this.data)
+      // this.triggerEvent('search', this.data)
+      wx.navigateTo({
+        url: '/pages/search/search'
+      })
     }
   }
 })

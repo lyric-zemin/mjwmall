@@ -11,6 +11,19 @@ export function getGoodsList(filters = {}) {
 }
 
 /**
+ * 搜索类
+ */
+export function searchGoodsList(brand, page) {
+  return http({
+    url: '/Choice/HomeSearch',
+    data: {
+      brand,
+      page
+    }
+  })
+}
+
+/**
  * 详情类
  */
 export function getGoodsDetail(itemid) {

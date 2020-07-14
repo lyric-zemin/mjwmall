@@ -153,6 +153,12 @@
 					"pathName": "pages/add-invoice/add-invoice",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/search/search",
+					"scene": null
 				}
 			]
 		}

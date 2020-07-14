@@ -1,5 +1,5 @@
 import { getCheckoutGoods, getDefaultAddress, submitOrder } from '../../api/checkout'
-import { toastMess, loading, unLoading } from '../../utils/helper'
+import { toastMess, loading, unLoading, toastFail } from '../../utils/helper'
 
 Page({
 
@@ -115,6 +115,7 @@ Page({
       toastMess('还未选择地址')
       return
     }
+    loading('正在拉取结算页')
     const { buynow } = this.data.options
 
     let invoice_id = ''
@@ -129,9 +130,11 @@ Page({
       const { key_no } = this.data.options
       console.log('购物车购买', key_no, buynow, address_id, invoice_id)
       submitOrder({ key_no, address_id, invoice_id, buynow }).then(res => {
-        console.log(res)
+        console.log('支付返回数据', res)
         if (res.code === 200) {
-          this.payment()
+          this.payment(res.data)
+        } else {
+          toastFail()
         }
       })
     }
@@ -141,14 +144,34 @@ Page({
       const { key_no } = this.data.checkoutList[0][0]
       const { num } = this.data.options
       console.log('立即购买', key_no, buynow, address_id, invoice_id, num)
+      submitOrder({ key_no, address_id, invoice_id, buynow, num }).then(res => {
+        console.log('支付返回数据', res)
+        if (res.code === 200) {
+          this.payment(res.data)
+        } else {
+          toastFail()
+        }
+      })
     }
   },
 
   payment(obj) {
     wx.requestPayment({
       ...obj,
-      success(res) { console.log(res) },
-      fail(err) { console.log(err) }
+      success(res) {
+        console.log('成功', res)
+        unLoading()
+        wx.reLaunch({
+          url: '/pages/order/order'
+        })
+      },
+      fail(err) {
+        console.log('失败', err)
+        toastMess('支付被取消')
+        wx.reLaunch({
+          url: '/pages/order/order'
+        })
+      }
     })
   }
 })

@@ -1,0 +1,46 @@
+.history-container {
+  margin-top: 18rpx;
+}
+
+.history-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.history-title .text {
+  font-size: var(--size-large);
+}
+
+.history-title .img {
+  width: 24rpx;
+  padding: 10rpx;
+}
+
+.history-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+van-tag {
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.result-container {
+  position: fixed;
+  top: 54px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--color-background);
+}
+
+.result-box {
+  padding: 10rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
