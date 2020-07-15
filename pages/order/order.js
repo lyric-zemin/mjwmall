@@ -1,5 +1,5 @@
-import { getOrderList, setOrderStatus } from '../../api/my'
-import { toastMess, loading, unLoading } from '../../utils/helper'
+import { getOrderList, setOrderStatus, payNow } from '../../api/my'
+import { toastMess, loading, unLoading, toastFail } from '../../utils/helper'
 
 const orderStatus = {
   all: {
@@ -131,6 +131,34 @@ Page({
         this.updateOrderList()
       } else {
         toastMess('失败了，再试试吧！')
+      }
+    })
+  },
+
+  /**
+   * 立即付款
+   */
+  payNow(e) {
+    loading('正在拉取结算页')
+    const { itemid } = e.currentTarget.dataset
+    payNow(itemid).then(res => {
+      console.log('结算返回数据', res)
+      if (res.code === 200) {
+        wx.requestPayment({
+          ...res.data,
+          success: res => {
+            console.log('成功', res)
+            unLoading()
+            this.updateOrderList()
+          },
+          fail: err => {
+            console.log('失败', err)
+            toastMess('支付被取消')
+            this.updateOrderList()
+          }
+        })
+      } else {
+        toastFail()
       }
     })
   }

@@ -105,6 +105,15 @@ export function setOrderStatus(data) {
   })
 }
 
+export function payNow(oid) {
+  return http({
+    url: '/mall/order/pay_order',
+    data: {
+      oid
+    }
+  })
+}
+
 /**
  * 
  * 足迹类

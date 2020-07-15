@@ -15,7 +15,7 @@
 		"nodeModules": true,
 		"autoAudits": false,
 		"showShadowRootInWxmlPanel": false,
-		"scopeDataCheck": true,
+		"scopeDataCheck": false,
 		"uglifyFileName": true,
 		"checkInvalidKey": true,
 		"checkSiteMap": false,
@@ -26,8 +26,10 @@
 			"outputPath": ""
 		},
 		"bundle": true,
+		"useIsolateContext": true,
 		"useCompilerModule": true,
-		"userConfirmedUseCompilerModuleSwitch": true
+		"userConfirmedUseCompilerModuleSwitch": true,
+		"compileHotReLoad": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.11.3",

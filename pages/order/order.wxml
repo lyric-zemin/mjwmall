@@ -95,7 +95,7 @@
                   round
                   size="small"
                   type="danger"
-                  bind:click
+                  bind:click="payNow"
                 >立即付款</van-button>
 
                 <van-button
