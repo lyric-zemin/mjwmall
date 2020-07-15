@@ -154,9 +154,11 @@ Page({
           fail: err => {
             console.log('失败', err)
             toastMess('支付被取消')
-            this.updateOrderList()
+            // this.updateOrderList()
           }
         })
+      } else if (res.code === 1000) {
+        toastMess(res.msg)
       } else {
         toastFail()
       }
