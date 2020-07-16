@@ -114,6 +114,15 @@ export function payNow(oid) {
   })
 }
 
+export function cancel(oid) {
+  return http({
+    url: '/mall/order/cancel',
+    data: {
+      oid
+    }
+  })
+}
+
 /**
  * 
  * 足迹类

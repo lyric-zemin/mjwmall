@@ -24,7 +24,11 @@
               <image class="img" src="{{item.thumb}}" mode="aspectFit" />
               <view class="detail">
                 <view class="left">
-                  <view class="name line2">{{item.title}}</view>
+                  <view
+                    class="name line2"
+                    data-itemid="{{item.goods_id}}"
+                    bind:tap="goGoodsDetail"
+                  >{{item.title}}</view>
                   <view class="type line2">{{item.attr}}</view>
                 </view>
                 <view class="right">
@@ -44,7 +48,11 @@
               <image class="img" src="{{child.thumb}}" mode="aspectFit" />
               <view class="detail">
                 <view class="left">
-                  <view class="name line2">{{child.title}}</view>
+                  <view
+                    class="name line2"
+                    data-itemid="{{child.goods_id}}"
+                    bind:tap="goGoodsDetail"
+                  >{{child.title}}</view>
                   <view class="type line2">{{child.attr}}</view>
                 </view>
                 <view class="right">
@@ -82,10 +90,11 @@
                 <van-button
                   wx:if="{{item.status==1}}"
                   data-itemid="{{item.itemid}}"
+                  data-index="{{index}}"
                   plain
                   round
                   size="small"
-                  bind:click
+                  bind:click="cancelPay"
                 >取消付款</van-button>
 
                 <van-button

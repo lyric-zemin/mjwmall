@@ -1,5 +1,5 @@
-import { getOrderList, setOrderStatus, payNow } from '../../api/my'
-import { toastMess, loading, unLoading, toastFail } from '../../utils/helper'
+import { getOrderList, setOrderStatus, payNow, cancel } from '../../api/my'
+import { toastMess, loading, unLoading, toastFail, goGoodsDetail } from '../../utils/helper'
 
 const orderStatus = {
   all: {
@@ -116,6 +116,10 @@ Page({
     })
   },
 
+  goGoodsDetail(e) {
+    goGoodsDetail(e)
+  },
+
   /**
    * 确认收货
    */
@@ -159,6 +163,22 @@ Page({
         })
       } else if (res.code === 1000) {
         toastMess(res.msg)
+      } else {
+        toastFail()
+      }
+    })
+  },
+
+  /**
+   * 取消付款
+   */
+  cancelPay(e) {
+    const { itemid, index } = e.currentTarget.dataset
+    cancel(itemid).then(res => {
+      if (res.code === 200) {
+        this.setData({
+          [`orderList.${this.data.currentStatus}[${index}].status`]: 8
+        }, () => toastMess('取消成功'))
       } else {
         toastFail()
       }

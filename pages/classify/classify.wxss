@@ -26,6 +26,7 @@ page {
 .v-search {
   background-color: var(--color-background) !important;
   text-align: left !important;
+  display: inline-block !important;
   text-indent: 20rpx;
 }
 
