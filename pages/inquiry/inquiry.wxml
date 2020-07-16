@@ -1,0 +1,48 @@
+<view class="banner">
+  <image src="./inquiry.jpg" mode="widthFix" />
+</view>
+
+<view class="container">
+  <van-field
+    label="名称："
+    value="{{commitData.title}}"
+    required
+    data-name="title"
+    bind:change="onChange"
+  />
+  <van-field
+    label="品牌："
+    value="{{commitData.brand}}"
+    required
+    data-name="brand"
+    bind:change="onChange"
+  />
+
+  <view class="num-container">
+    <van-field label="数量：" required disabled border="{{0}}" />
+    <view class="num-content">
+      <van-stepper value="{{commitData.amount}}" data-name="amount" bind:change="onChange" />
+    </view>
+  </view>
+
+  <van-field label="上传图片：" required disabled border="{{0}}" data-name="thumb" />
+  <van-uploader
+    file-list="{{fileList}}"
+    max-count="3"
+    bind:after-read="afterRead"
+    bind:delete="delete"
+  />
+
+  <van-field label="其它备注：" required disabled border="{{0}}" />
+  <textarea
+    class="remark"
+    value="{{commitData.description}}"
+    auto-height
+    data-name="description"
+    bindinput="onChange"
+  />
+
+  <view class="btn-container">
+    <van-button type="danger" size="large" round bind:click="submit">立即发布</van-button>
+  </view>
+</view>

@@ -1,0 +1,27 @@
+<van-index-bar index-list="{{indexList}}" highlight-color="#cf0011">
+  <view wx:for="{{brandList}}" wx:key="letter">
+    <!-- 推荐 -->
+    <block wx:if="{{item.letter == '推荐'}}">
+      <van-index-anchor index="荐" use-slot>
+        <view class="anchor container">推荐企业</view>
+      </van-index-anchor>
+      <view class="item container recommend">
+        <view class="img" wx:for="{{item.char}}" wx:key="userid" wx:for-item="child">
+          <image src="{{child.thumb}}" mode="aspectFill" lazy-load="{{true}}" />
+        </view>
+      </view>
+    </block>
+    <!-- 字母类 -->
+    <block wx:else>
+      <van-index-anchor index="{{item.letter}}" use-slot>
+        <view class="anchor container">{{item.letter}}</view>
+      </van-index-anchor>
+      <view class="item container" wx:for="{{item.char}}" wx:key="userid" wx:for-item="child">
+        <view class="img">
+          <image src="{{child.thumb}}" mode="aspectFill" lazy-load="{{true}}" />
+        </view>
+        <text class="name">{{child.company}}</text>
+      </view>
+    </block>
+  </view>
+</van-index-bar>

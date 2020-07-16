@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"enhance": true,
 		"postcss": true,
@@ -160,6 +160,21 @@
 					"id": -1,
 					"name": "搜索",
 					"pathName": "pages/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 14,
+					"name": "品牌企业",
+					"pathName": "pages/brand/brand",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布询价",
+					"pathName": "pages/inquiry/inquiry",
+					"query": "",
 					"scene": null
 				}
 			]

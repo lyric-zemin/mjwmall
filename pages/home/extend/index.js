@@ -25,11 +25,13 @@ Component({
       },
       {
         img: './image/enterprise.svg',
-        text: '品牌企业'
+        text: '品牌企业',
+        url: '/pages/brand/brand'
       },
       {
         img: './image/inquiry.svg',
-        text: '发布询价'
+        text: '发布询价',
+        url: '/pages/inquiry/inquiry'
       },
       {
         img: './image/goods.svg',

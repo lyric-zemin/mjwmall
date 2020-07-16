@@ -4,7 +4,7 @@
       <i class="iconfont icon-pinpai" />
       <view class="text">精选品牌</view>
     </div>
-    <view class="more">更多</view>
+    <view class="more" bind:tap="moreBrand">更多</view>
   </view>
   <van-grid border="{{false}}">
     <van-grid-item wx:for="{{brands}}" wx:key="userid" use-slot>

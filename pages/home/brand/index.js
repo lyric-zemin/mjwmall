@@ -21,6 +21,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    moreBrand() {
+      wx.navigateTo({
+        url: '/pages/brand/brand'
+      })
+    }
   }
 })

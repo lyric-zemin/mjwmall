@@ -15,7 +15,9 @@
     "pages/checkout/checkout",
     "pages/invoice/invoice",
     "pages/add-invoice/add-invoice",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/brand/brand",
+    "pages/inquiry/inquiry"
   ],
   "window": {
     "navigationBarTitleText": "lyric",

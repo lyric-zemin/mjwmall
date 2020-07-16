@@ -1,0 +1,33 @@
+.banner,
+.banner image {
+  width: 100%;
+}
+
+.container {
+  padding: 0 28rpx;
+}
+
+.num-container {
+  position: relative;
+}
+
+.num-content {
+  position: absolute;
+  z-index: 50;
+  left: 90px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.remark {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ebedf0;
+  min-height: 134rpx;
+  border-radius: 10rpx;
+  padding: 10rpx;
+}
+
+.btn-container {
+  margin: 80rpx 30rpx 20rpx;
+}
