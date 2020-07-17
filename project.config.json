@@ -176,6 +176,12 @@
 					"pathName": "pages/inquiry/inquiry",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "委托找货",
+					"pathName": "pages/commission/commission",
+					"scene": null
 				}
 			]
 		}

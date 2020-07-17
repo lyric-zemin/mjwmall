@@ -1,8 +1,8 @@
 import http from './http'
 
-export function addInquiry(data) {
+export function addCommission(data) {
   return http({
-    url: '/inquiry/inquiry/saveInquiry',
+    url: '/entrust/Entrust/entrust',
     method: 'POST',
     data
   })

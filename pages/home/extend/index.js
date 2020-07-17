@@ -35,7 +35,8 @@ Component({
       },
       {
         img: './image/goods.svg',
-        text: '委托找货'
+        text: '委托找货',
+        url: '/pages/commission/commission'
       }
     ]
   },

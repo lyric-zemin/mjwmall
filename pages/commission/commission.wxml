@@ -1,0 +1,73 @@
+<view class="banner">
+  <image src="./commission.jpg" mode="widthFix" />
+</view>
+
+<view class="container">
+  <van-field
+    label="委托人："
+    value="{{commitData.truename}}"
+    required
+    data-name="truename"
+    bind:change="onChange"
+  />
+  <van-field
+    label="公司名称："
+    value="{{commitData.company}}"
+    required
+    data-name="company"
+    bind:change="onChange"
+  />
+
+  <van-field
+    label="联系电话："
+    value="{{commitData.mobile}}"
+    required
+    data-name="mobile"
+    bind:change="onChange"
+  />
+
+  <van-field label="上传图片：" required disabled border="{{0}}" data-name="attach_id" />
+  <van-uploader
+    file-list="{{fileList}}"
+    max-count="3"
+    bind:after-read="afterRead"
+    bind:delete="delete"
+  />
+
+  <van-field label="委托事项详情：" required disabled border="{{0}}" label-class="label" />
+  <textarea
+    class="remark"
+    value="{{commitData.content}}"
+    auto-height
+    data-name="content"
+    bindinput="onChange"
+  />
+
+  <view class="btn-container">
+    <van-button type="danger" size="large" round bind:click="submit">立即提交</van-button>
+    <view class="agreement">
+      <van-checkbox
+        value="{{commitData.agreement}}"
+        checked-color="#07c160"
+        icon-size="16px"
+        data-name="agreement"
+        bind:change="onChange"
+      />
+      <view class="content">
+        同意，遵循平台
+        <text class="detail" bind:tap="open">《委托找货原则》</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<van-popup show="{{show}}" round closeable bind:close="close">
+  <view class="agreement-content">
+    <view class="title">委托找货原则</view>
+    <view class="detail">
+      <view>1、平台提供各类商机</view>
+      <view>2、平台免费为寻找货源的企业提供信息</view>
+      <view>3、平台仅提供信息，不承担后续一切事宜的法律责任</view>
+    </view>
+  </view>
+</van-popup>

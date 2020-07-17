@@ -7,7 +7,7 @@ page {
   background-color: var(--color-background);
   font-size: var(--size-large);
   color: var(--color-text);
-  font-weight: 500;
+  /* font-weight: 500; */
 }
 
 .item {
@@ -39,7 +39,7 @@ page {
 .van-index-bar__index {
   padding: 10rpx !important;
   color: var(--color-text-i);
-  font-weight: 400;
+  font-weight: 300 !important;
 }
 
 .recommend {

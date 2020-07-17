@@ -1,0 +1,61 @@
+.banner,
+.banner image {
+  width: 100%;
+}
+
+.container {
+  padding: 0 28rpx;
+}
+
+van-field {
+  white-space: nowrap;
+}
+
+.remark {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ebedf0;
+  min-height: 134rpx;
+  border-radius: 10rpx;
+  padding: 10rpx;
+}
+
+.btn-container {
+  margin: 80rpx 30rpx 20rpx;
+}
+
+.agreement {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20rpx 0;
+}
+
+.agreement .content {
+  margin-left: 8rpx;
+  font-size: var(--size-normal);
+  color: var(--color-text);
+}
+
+.agreement .detail {
+  color: #0e90ff;
+}
+
+.agreement-content {
+  width: 620rpx;
+  padding: 50rpx 60rpx;
+  box-sizing: border-box;
+}
+
+.agreement-content .title {
+  text-align: center;
+  color: #0e90ff;
+  font-size: var(--size-normal);
+}
+
+.agreement-content .detail {
+  margin-top: 20rpx;
+  color: #a9a9a9;
+  font-size: var(--size-normal);
+  line-height: 2;
+}

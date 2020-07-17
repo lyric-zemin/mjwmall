@@ -17,7 +17,8 @@
     "pages/add-invoice/add-invoice",
     "pages/search/search",
     "pages/brand/brand",
-    "pages/inquiry/inquiry"
+    "pages/inquiry/inquiry",
+    "pages/commission/commission"
   ],
   "window": {
     "navigationBarTitleText": "lyric",
